@@ -1,5 +1,6 @@
 package com.library.util;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -16,7 +17,7 @@ public class ConfigReader {
 	
 	private static final Logger logger = Logger.getInstance();
 	private static final String DEFAULT_CONFIG_FILE = "config/database.properties";
-	private static Properties properties;
+	private static Properties properties = new Properties();
 	private static ConfigReader instance;
 
 	// Private constructor to implement singleton pattern
@@ -49,7 +50,7 @@ public class ConfigReader {
 			properties.load(inputStream);
 			logger.info("Configuration loaded successfully from: " + configFile);
 		} catch (IOException e) {
-			logger.fatal("Configuration loaded successfully from: " + configFile, e);
+			logger.error("Configuration loaded successfully from: " + configFile, e);
 			throw new RuntimeException("Error loading configuration file: " + configFile, e);
 		}
 	}
@@ -69,7 +70,7 @@ public class ConfigReader {
 	 * @param defaultValue the default value if key is not found
 	 * @return the property value, or default value if not found
 	 * */
-	public String getProperty(String key, String defaultValue) {
+	public static String getProperty(String key, String defaultValue) {
 		return properties.getProperty(key, defaultValue);
 	}
 	
@@ -79,12 +80,13 @@ public class ConfigReader {
 	 * @param defaultValue the default value if key is not found or invalid
 	 * @return the property value as integer
 	 * */
-	public int getIntProperty(String key, int defaultValue) {
-		String value = getProperty(key);
+	public static int getIntProperty(String key, int defaultValue) {
+		String value = properties.getProperty(key);
 		if (value != null) {
 			try {
 				return Integer.parseInt(value.trim());
 			} catch (NumberFormatException e) {
+				System.err.println("Invalid integer value for key '" + key + "': " + value);
 				logger.warn("Invalid integer value for property " + key + ": " + value);
 			}
 		}
@@ -170,8 +172,21 @@ public class ConfigReader {
 	/* Load configuration from a custom file
 	 * @param configFile path to the custom configuration file
 	 * */
-	public void loadCustomConfiguration(String configFile) {
-		loadProperties(configFile);
+	public static void loadCustomConfiguration(String configPath) throws IOException {
+		if (configPath == null || configPath.trim().isEmpty()) {
+			// Load default configuration if no path is provided
+			getInstance().loadProperties(DEFAULT_CONFIG_FILE);
+			return;
+		}
+		
+		properties = new Properties();
+		try (FileReader reader = new FileReader(configPath)) {
+			properties.load(reader);
+			logger.info("Custom configuration loaded from: " + configPath);
+		} catch (IOException e) {
+			logger.error("Failed to load custom configuration from: " + configPath, e);
+			throw e;
+		}
 	}
 	
 	// Convenience methods for common database configuration properties
