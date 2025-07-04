@@ -5,11 +5,16 @@ import java.awt.Font;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.library.util.Logger;
-
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import com.library.database.DatabaseConnection;
+import com.library.database.DatabaseInitializer;
+import com.library.gui.LoginFrame;
+import com.library.gui.MainFrame;
+import com.library.util.ConfigReader;
+import com.library.util.Logger;
 
 /*
  * Main application class for the Library Management System.
@@ -25,11 +30,8 @@ public class LibraryManagementApp {
 	private static final String VERSION = "1.0.0";
 	
 	// Get logger instance
-	private static Logger logger = Logger.getInstance();
-	
-	// Configure logger
-	logger.setLogLevel(Logger.LogLevel.DEBUG);
-	
+	static Logger logger = Logger.getInstance();
+			
 	/*
 	 * Main method - entry point for the app
 	 * @param args command line arguments
@@ -62,7 +64,7 @@ public class LibraryManagementApp {
 				startApplication();
 			} catch (Exception e) {
 				e.printStackTrace();
-				logger.warning("");
+				logger.warn("");
 			}
 		});	
 	}
@@ -90,17 +92,17 @@ public class LibraryManagementApp {
 	 * */
 	private static boolean loadConfiguration() {
 		try {
-			ConfigReader.loadConfiguration();
+			ConfigReader.loadCustomConfiguration("config/custom-config.properties");
 			logger.info("Configuration loaded successfully!");
 			return true;
 		} catch (Exception e) {
-			logger.severe("Failed to load configuration: " + e.getMessage());
+			logger.error("Failed to load configuration: " + e.getMessage());
 			return false;
 		}
 	}
 	
 	/*
-	 * Initialize database connection and create tables if needeed
+	 * Initialize database connection and create tables if needed
 	 * @return true if database initialized successfully, false otherwise
 	 * */
 	private static boolean initializeDatabase() {
@@ -108,12 +110,12 @@ public class LibraryManagementApp {
 			// Test database connection
 			Connection connection = DatabaseConnection.getConnection();
 			if (connection == null) {
-				logger.severe("Failed to establish database connection");
+				logger.error("Failed to establish database connection");
 				return false;
 			}
 			
 			// Initialize database schema if needed
-			DatabaseInitializer.initializeDataabase();
+			DatabaseInitializer.initializeDatabase();
 			
 			// Close test connection
 			connection.close();
@@ -122,11 +124,11 @@ public class LibraryManagementApp {
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			logger.severe("Database initialization failed: " + e.getMessage());
+			logger.error("Database initialization failed: " + e.getMessage());
 			return false;
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.severe("Unexpected error during database initialization: " + e.getMessage());
+			logger.error("Unexpected error during database initialization: " + e.getMessage());
 			return false;
 		}
 	}
@@ -140,7 +142,7 @@ public class LibraryManagementApp {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			logger.info("System Look and Feel applied");
 		} catch (Exception e) {
-			logger.warning("Failed to set system look and feel, using default: " + e.getMessage());
+			logger.warn("Failed to set system look and feel, using default: " + e.getMessage());
 			try {
 				// Fallback to nimbus look and feel
 				for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -152,7 +154,7 @@ public class LibraryManagementApp {
 				}
 			} catch (Exception ex) {
 				e.printStackTrace();
-				logger.warning("Failed to set Nimbus look and feel: " + e.getMessage());
+				logger.warn("Failed to set Nimbus look and feel: " + e.getMessage());
 			}
 		}
 		
@@ -191,7 +193,8 @@ public class LibraryManagementApp {
 	 * */
 	private static void startApplication() {
 		// Check if login is required (based on configuration)
-		boolean loginRequired = ConfigReader.getBoolean("login.required", true);
+		String loginRequiredStr = ConfigReader.getProperty("login.required", "true");
+		boolean loginRequired = Boolean.parseBoolean(loginRequiredStr);
 		
 		if (loginRequired) {
 			// Show login frame first
@@ -225,7 +228,7 @@ public class LibraryManagementApp {
 	 * */
 	private static void showMainFrame() {
 		SwingUtilities.invokeLater(() -> {
-			MainFrame mainFrame = new MainFram();
+			MainFrame mainFrame = new MainFrame();
 			mainFrame.setVisible(true);
 			
 			// Center the frame on screen
@@ -250,7 +253,7 @@ public class LibraryManagementApp {
 				DatabaseConnection.closeAllConnections();
 				logger.info("Database connections closed");
 			} catch (Exception e) {
-				logger.warning("Error closing database connections: " + e.getMessage());
+				logger.warn("Error closing database connections: " + e.getMessage());
 			}
 			
 			logger.info("Application shutdown complete");
