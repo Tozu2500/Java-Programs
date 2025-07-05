@@ -3,6 +3,9 @@ package com.library.exception;
 /*
  * Custom exception class for database-related errors.
  * This is a checked exception that should be used to wrap database operations that may fail.
+ * 
+ * @author Tozu
+ * @version 1.0.0
  * */
 @SuppressWarnings("serial")
 public class DatabaseException extends Exception {
