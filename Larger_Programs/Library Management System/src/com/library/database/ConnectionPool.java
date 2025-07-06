@@ -498,5 +498,9 @@ public class ConnectionPool {
 					", returned=" + connectionsReturned +
 					'}';
 		}
+
+		public static String toString(String string) {
+			return new String("");
+		}
 	}
 }
