@@ -1,0 +1,107 @@
+=== COMPLETE TEXT ANALYSIS SUMMARY ===
+File: User Input
+Analysis Date: 2025-09-01T23:47:37.833463200
+
+Quick Overview:
+  |  Lines: 6  |  Characters: 48  |  Paragraphs: 2
+  Reading Level: Unknown
+  Vocabulary Richness: 90%
+
+=== File Statistics For: User Input ===
+
+Line Statistics:
+  Total lines: 6
+  Empty lines: 2
+  Non-empty lines: 4
+  Longest line length: 36 characters
+  Shortest line length: 2 characters
+  Longest line preview: "Here is my text testing sentence END"
+  Shortest line preview: "dd"
+
+Text Statistics:
+  Total words: 10
+  Total characters: 48
+  Total characters, no spaces: 42
+  Total paragraphs: 2
+  Total sentences: 0
+
+Averages:
+  Average words per line: 1,67
+  Average character per line: 8
+  Average words per sentence: 0
+
+=== Character Statistics ===
+
+Character type counts:
+  Alphabetical characters: 40
+  Numeric characters 0
+  Special characters: 0
+  Whitespace characters: 6
+  Uppercase letters: 4
+  Lowercase letters: 36
+  Vowels: 13
+  Consonants: 27
+  Punctuation marks: 2
+
+Character Frequency Analysis:
+  Unique characters: 19
+  Most frequent character: 'e' (8 times)
+  Least frequent character: 'c' (1 times)
+
+Top 10 Most Frequent Characters:
+ 1. 'e': 8 times
+ 2. 'SPACE': 6 times
+ 3. 's': 5 times
+ 4. 't': 5 times
+ 5. 'd': 4 times
+ 6. 'n': 4 times
+ 7. 'a': 2 times
+ 8. ''': 2 times
+ 9. 'i': 2 times
+ 10. 'c': 1 times
+
+=== Word Statistics ===
+
+Word counts:
+  Total words: 10
+  Unique words: 9
+  Vocabulary richness: 90%
+
+Word Length Analysis:
+  Average word length: 4 characters
+  Longest word: "sentence" (8 characters)
+  Shortest word: "is" (2 characters)
+  Most common word length: 2 characters
+
+Frequency analysis:
+  Most frequent word: "end" (2 times)
+  Least frequent word: "here" (1 times)
+
+Top 15 Most Frequent Words:
+ 1. "end": 2 times
+ 2. "here": 1 times
+ 3. "sentence": 1 times
+ 4. "dd": 1 times
+ 5. "testing": 1 times
+ 6. "is": 1 times
+ 7. "sadas": 1 times
+ 8. "text": 1 times
+ 9. "my": 1 times
+
+Word Length Distribution:
+ 2 characters: 3 words(30%)
+ 3 characters: 2 words(20%)
+ 4 characters: 2 words(20%)
+ 5 characters: 1 words(10%)
+ 7 characters: 1 words(10%)
+ 8 characters: 1 words(10%)
+
+=== Readability Analysis ===
+
+Readability Scores:
+  Flesch reading ease: 0 (Unknown)
+  Flesch-Kincaid grade level: 0
+
+Readability Interpretation:
+  The text has a reading difficulty level of: Unknown
+  This text is quite difficult and may require specialized knowledge or graduate-level education.
