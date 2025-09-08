@@ -13,6 +13,11 @@ public class TaskPlannerApp {
         System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Task Priority Planner");
 
         SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             setupUIDefaults();
             TaskPlannerMainWindow mainWindow = new TaskPlannerMainWindow();
             mainWindow.setVisible(true);
