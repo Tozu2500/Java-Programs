@@ -37,7 +37,7 @@ public class TaskSorter {
                 return Comparator.comparing(Task::getTitle, String.CASE_INSENSITIVE_ORDER);
 
             case PRIORITY:
-                return Comparator.comparing(task -> task.getPriority().getLevel(), Comparator.reverseOrder());
+                return Comparator.comparing(task -> task.getPriority().ordinal(), Comparator.reverseOrder());
 
             case CATEGORY:
                 return Comparator.comparing(task -> task.getCategory().getDisplayName(), String.CASE_INSENSITIVE_ORDER);
@@ -62,7 +62,7 @@ public class TaskSorter {
     public static List<Task> sortByPriorityAndDueDate(List<Task> tasks) {
         List<Task> sortedTasks = new ArrayList<>(tasks);
         sortedTasks.sort(Comparator
-            .comparing((Task task) -> task.getPriority().getLevel(), Comparator.reverseOrder())
+            .comparing((Task task) -> task.getPriority().ordinal(), Comparator.reverseOrder())
             .thenComparing(Task::getDueDate, Comparator.nullsLast(Comparator.naturalOrder()))
         );
         return sortedTasks;
@@ -72,7 +72,7 @@ public class TaskSorter {
         List<Task> sortedTasks = new ArrayList<>(tasks);
         sortedTasks.sort(Comparator
             .comparing(Task::getStatus)
-            .thenComparing((Task task) -> task.getPriority().getLevel(), Comparator.reverseOrder())
+            .thenComparing((Task task) -> task.getPriority().ordinal(), Comparator.reverseOrder())
         );
         return sortedTasks;
     }

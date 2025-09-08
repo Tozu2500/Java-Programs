@@ -1,6 +1,6 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.io.Serializable;
 
 public class Task implements Serializable, Comparable<Task> {
     private static final long serialVersionUID = 1L;
@@ -34,6 +34,47 @@ public class Task implements Serializable, Comparable<Task> {
         this(title, description);
         this.priority = priority;
         this.category = category;
+    }
+
+    public Task(int id, String title, String description, Priority priority, 
+                Category category, Status status, LocalDateTime createdDate, 
+                LocalDateTime dueDate, LocalDateTime completedDate) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority != null ? priority : Priority.MEDIUM;
+        this.category = category != null ? category : Category.GENERAL;
+        this.status = status != null ? status : Status.PENDING;
+        this.createdDate = createdDate != null ? createdDate : LocalDateTime.now();
+        this.dueDate = dueDate;
+        this.completedDate = completedDate;
+        this.estimatedHours = 1;
+        this.notes = "";
+        
+        if (id >= nextId) {
+            nextId = id + 1;
+        }
+    }
+
+    public Task(int id, String title, String description, Priority priority, 
+                Category category, Status status, LocalDateTime createdDate, 
+                LocalDateTime dueDate, LocalDateTime completedDate, 
+                int estimatedHours, String notes) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority != null ? priority : Priority.MEDIUM;
+        this.category = category != null ? category : Category.GENERAL;
+        this.status = status != null ? status : Status.PENDING;
+        this.createdDate = createdDate != null ? createdDate : LocalDateTime.now();
+        this.dueDate = dueDate;
+        this.completedDate = completedDate;
+        this.estimatedHours = estimatedHours > 0 ? estimatedHours : 1;
+        this.notes = notes != null ? notes : "";
+        
+        if (id >= nextId) {
+            nextId = id + 1;
+        }
     }
     
     public int getId() {

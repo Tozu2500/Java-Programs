@@ -2,8 +2,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.time.LocalDateTime;
-
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 public class TaskPlannerApp {
@@ -12,26 +12,11 @@ public class TaskPlannerApp {
         System.setProperty("apple.laf.useScreenMenuBar", "true");
         System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Task Priority Planner");
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (Exception e) {
-                    try {
-                        UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-                    } catch (Exception ex) {
-                        System.err.println("Failed to set look and feel: " + ex.getMessage());
-                    }
-                }
-
-                setupUIDefaults();
-
-                TaskPlannerMainWindow mainWindow = new TaskPlannerMainWindow();
-                mainWindow.setVisible(true);
-
-                createSampleTasks(mainWindow);
-            }
+        SwingUtilities.invokeLater(() -> {
+            setupUIDefaults();
+            TaskPlannerMainWindow mainWindow = new TaskPlannerMainWindow();
+            mainWindow.setVisible(true);
+            createSampleTasks(mainWindow);
         });
     }
 
@@ -99,6 +84,34 @@ public class TaskPlannerApp {
             task6.setEstimatedHours(5);
             task6.setDueDate(LocalDateTime.now().plusMonths(1));
             taskManager.addTask(task6);
+
+            Task task7 = new Task("Update resume", "Refresh resume with recent work experience");
+            task7.setPriority(Priority.MEDIUM);
+            task7.setCategory(Category.WORK);
+            task7.setEstimatedHours(2);
+            task7.setStatus(Status.COMPLETED);
+            taskManager.addTask(task7);
+
+            Task task8 = new Task("Watch new movie", "Check out the latest releases on streaming");
+            task8.setPriority(Priority.MINIMAL);
+            task8.setCategory(Category.ENTERTAINMENT);
+            task8.setEstimatedHours(2);
+            taskManager.addTask(task8);
+
+            Task task9 = new Task("Pay monthly bills", "Pay utilities, rent, and credit card bills");
+            task9.setPriority(Priority.URGENT);
+            task9.setCategory(Category.FINANCE);
+            task9.setEstimatedHours(1);
+            task9.setDueDate(LocalDateTime.now().plusDays(3));
+            taskManager.addTask(task9);
+
+            Task task10 = new Task("Clean garage", "Organize and clean out the garage storage");
+            task10.setPriority(Priority.LOW);
+            task10.setCategory(Category.HOUSEHOLD);
+            task10.setEstimatedHours(6);
+            task10.setStatus(Status.ON_HOLD);
+            task10.setNotes("Waiting for better weather and free weekend");
+            taskManager.addTask(task10);
         }
     }
 }
