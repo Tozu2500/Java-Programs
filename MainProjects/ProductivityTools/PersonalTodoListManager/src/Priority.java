@@ -1,51 +1,43 @@
+import java.awt.Color;
+
 public enum Priority {
-
-    LOW(1, "Low"),
-    MEDIUM(2, "Medium"),
-    HIGH(3, "High"),
-    URGENT(4, "Urgent");
-
-    private final int level;
+    URGENT(5, "Urgent", new Color(220, 53, 69)),
+    HIGH(4, "High", new Color(255, 193, 7)),
+    MEDIUM(3, "Medium", new Color(40, 167, 69)),
+    LOW(2, "Low", new Color(108, 117, 125)),
+    MINIMAL(1, "Minimal", new Color(173, 181, 189));
+    
+    private final int weight;
     private final String displayName;
-
-    Priority(int level, String displayName) {
-        this.level = level;
+    private final Color color;
+    
+    Priority(int weight, String displayName, Color color) {
+        this.weight = weight;
         this.displayName = displayName;
+        this.color = color;
     }
-
-    public int getLevel() {
-        return level;
+    
+    public int getWeight() {
+        return weight;
     }
-
+    
     public String getDisplayName() {
         return displayName;
     }
-
-    public static Priority fromString(String value) {
-        if (value == null) return MEDIUM;
-
-        try {
-            return Priority.valueOf(value.toUpperCase());
-        } catch (IllegalArgumentException e) {
-            switch (value.toLowerCase()) {
-                case "1":
-                case "low":
-                    return LOW;
-                case "2":
-                case "medium":
-                    return MEDIUM;
-                case "3":
-                case "high":
-                    return HIGH;
-                case "4":
-                case "urgent":
-                    return URGENT;
-                default:
-                    return MEDIUM;
+    
+    public Color getColor() {
+        return color;
+    }
+    
+    public static Priority fromString(String priority) {
+        for (Priority p : Priority.values()) {
+            if (p.name().equalsIgnoreCase(priority) || p.displayName.equalsIgnoreCase(priority)) {
+                return p;
             }
         }
+        return MEDIUM;
     }
-
+    
     @Override
     public String toString() {
         return displayName;

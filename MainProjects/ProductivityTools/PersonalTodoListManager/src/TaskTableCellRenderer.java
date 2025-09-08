@@ -1,19 +1,16 @@
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import javax.swing.JTable;
+import java.awt.*;
+import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
 public class TaskTableCellRenderer extends DefaultTableCellRenderer {
-
+    
     @Override
-    public Component getTableCellRendererComponent(JTable, table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-
+        
         TaskTableModel model = (TaskTableModel) table.getModel();
         Task task = model.getTaskAt(row);
-
+        
         if (task != null) {
             if (!isSelected) {
                 if (task.isOverdue()) {
@@ -26,7 +23,7 @@ public class TaskTableCellRenderer extends DefaultTableCellRenderer {
                     component.setBackground(Color.WHITE);
                 }
             }
-
+            
             if (column == 2) {
                 Priority priority = task.getPriority();
                 component.setForeground(priority.getColor());
@@ -44,12 +41,12 @@ public class TaskTableCellRenderer extends DefaultTableCellRenderer {
                 }
                 setFont(getFont().deriveFont(Font.PLAIN));
             }
-
+            
             if (task.getStatus() == Status.COMPLETED) {
                 setFont(getFont().deriveFont(Font.ITALIC));
             }
         }
-
+        
         return component;
     }
 }
