@@ -273,23 +273,29 @@ public class AudioEngine {
         }
     }
 
-    public void loadAudioFile(File file) throws Exception {
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-        audioFormat = audioInputStream.getFormat();
-
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        byte[] data = new byte[4096];
-        int bytesRead;
-
-        while ((bytesRead = audioInputStream.read(data)) != -1) {
-            buffer.write(data, 0, bytesRead);
+    public void loadAudioFile(File file) throws IOException, UnsupportedAudioFileException {
+        final long MAX_MEMORY_LOAD_SIZE = 50 * 1024 * 1024;  // 50 MB limit for the audio file
+        
+        if (file.length() > MAX_MEMORY_LOAD_SIZE) {
+            throw new IOException("The file is too large, it exceeds (50MB): " + file.length() + " bytes");
         }
 
-        currentRecording = buffer.toByteArray();
-        audioInputStream.close();
+        try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream()) {
+            
+            audioFormat = audioInputStream.getFormat();
+            byte[] data = new byte[4096];
+            int bytesRead;
 
-        if (statusListener != null) {
-            statusListener.onStatusChange("Audio file loaded: " + file.getName());
+            while ((bytesRead = audioInputStream.read(data)) != -1) {
+                buffer.write(data, 0, bytesRead);
+            }
+
+            currentRecording = buffer.toByteArray();
+
+            if (statusListener != null) {
+                statusListener.onStatusChange("Audio file loaded: " + file.getName());
+            }
         }
     }
 
@@ -323,12 +329,12 @@ public class AudioEngine {
         return devices;
     }
 
-    public long getRecordingLength() {
+    public double getRecordingLength() {
         if (currentRecording == null || audioFormat == null) {
             return 0;
         }
-
-        return (long) (currentRecording.length / (audioFormat.getFrameSize() * audioFormat.getFrameRate()));
+        // Using floating point division for accurate length calc
+        return (long) ((double) currentRecording.length / (audioFormat.getFrameSize() * audioFormat.getFrameRate()));
     }
 
     public double getRecordingLengthInSeconds() {
