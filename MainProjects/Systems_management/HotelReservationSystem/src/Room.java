@@ -313,7 +313,7 @@ public class Room {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Room room = (Room) obj;
-        return roomNumber = room.roomNumber;
+        return roomNumber == room.roomNumber;
     }
 
     @Override

@@ -6,7 +6,7 @@ public enum PaymentMethod {
     BANK_TRANSFER("Bank Transfer", "Payment with a bank transfer", false),
     PAYPAL("PayPal", "Payment with PayPal", true),
     DIGITAL_WALLET("Digital Wallet", "Payment via a digital wallet", true),
-    CRYPTOCURRENCY("Cryptocurrency", "Payment with cryptocurrency" false),
+    CRYPTOCURRENCY("Cryptocurrency", "Payment with cryptocurrency", false),
     CHECK("Check", "Payment by check", false),
     COMPANY_ACCOUNT("Company Account", "Payment charged to a company account", false);
 

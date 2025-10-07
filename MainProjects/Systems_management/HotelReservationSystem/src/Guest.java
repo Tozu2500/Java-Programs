@@ -41,7 +41,7 @@ public class Guest {
         this.idNumber = idNumber;
     }
 
-    public int guestId() {
+    public int getGuestId() {
         return guestId;
     }
 
