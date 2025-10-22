@@ -31,6 +31,83 @@ public abstract class BankAccount implements Serializable {
     public abstract double getInterestRate();
     public abstract double getMinimumBalance();
 
-    
+    public boolean deposit(double amount) {
+        if (amount <= 0) {
+            return false;
+        }
+        balance += amount;
+        addTransaction(new Transaction(TransactionType.DEPOSIT, amount, "Deposit"));
+        return true;
+    }
 
+    public boolean withdraw(double amount) {
+        if (amount <= 0 || !isActive) {
+            return false;
+        }
+        if (balance - amount < getMinimumBalance()) {
+            return false;
+        }
+        balance -= amount;
+        addTransaction(new Transaction(TransactionType.WITHDRAWAL, amount, "Withdrawal"));
+        return true;
+    }
+
+    public boolean transfer(BankAccount targetAccount, double amount) {
+        if (amount <= 0 || !isActive || !targetAccount.isActive()) {
+            return false;
+        }
+        if (balance - amount < getMinimumBalance()) {
+            return false;
+        }
+        balance -= amount;
+        targetAccount.deposit(amount);
+        addTransaction(new Transaction(TransactionType.TRANSFER, amount,
+            "Transfer to " + targetAccount.getAccountNumber()));
+        return true;
+    }
+
+    public void calculateInterest() {
+        double interest = balance * (getInterestRate() / 100);
+        if (interest > 0) {
+            balance += interest;
+            addTransaction(new Transaction(TransactionType.INTEREST, interest,
+                "Interest credited at " + getInterestRate() + "%"));
+        }
+    }
+
+    private void addTransaction(Transaction transaction) {
+        transactionHistory.add(transaction);
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public List<Transaction> getTransactionHistory() {
+        return new ArrayList<>(transactionHistory);
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public void setAccountHolderName(String name) {
+        this.accountHolderName = name;
+    }
 }
