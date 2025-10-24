@@ -148,7 +148,7 @@ public class RegistrationPanel extends JPanel {
             BorderFactory.createEmptyBorder(5, 5, 5, 5)
         ));
     }
-
+    
     private class RegisterActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -158,40 +158,41 @@ public class RegistrationPanel extends JPanel {
             String fullName = fullNameField.getText().trim();
             String email = emailField.getText().trim();
             String phone = phoneField.getText().trim();
-
-            if (username.isEmpty() || password.isEmpty() || fullName.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+            
+            if (username.isEmpty() || password.isEmpty() || fullName.isEmpty() || 
+                email.isEmpty() || phone.isEmpty()) {
                 JOptionPane.showMessageDialog(RegistrationPanel.this,
-                    "All fields are required",
+                    "All fields are required.",
                     "Registration Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            
             if (!password.equals(confirmPassword)) {
                 JOptionPane.showMessageDialog(RegistrationPanel.this,
-                    "Passwords don't match",
+                    "Passwords do not match.",
                     "Registration Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            
             if (password.length() < 6) {
                 JOptionPane.showMessageDialog(RegistrationPanel.this,
-                    "Password must be at least 6 characters long",
+                    "Password must be at least 6 characters long.",
                     "Registration Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            
             if (!email.contains("@")) {
                 JOptionPane.showMessageDialog(RegistrationPanel.this,
-                    "Please enter a valid email address",
+                    "Please enter a valid email address.",
                     "Registration Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            
             BankSystem system = BankSystem.getInstance();
             if (system.registerUser(username, password, fullName, email, phone)) {
                 JOptionPane.showMessageDialog(RegistrationPanel.this,
-                    "Registration successful! You are now able to login!",
-                    "Successful", JOptionPane.INFORMATION_MESSAGE);
+                    "Registration successful! You can now login.",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
                 clearFields();
                 mainFrame.showLogin();
             } else {
@@ -201,7 +202,7 @@ public class RegistrationPanel extends JPanel {
             }
         }
     }
-
+    
     private void clearFields() {
         usernameField.setText("");
         passwordField.setText("");
