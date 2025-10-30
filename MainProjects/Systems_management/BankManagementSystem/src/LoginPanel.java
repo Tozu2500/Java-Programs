@@ -1,7 +1,7 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class LoginPanel extends JPanel {
     private MainFrame mainFrame;
@@ -32,7 +32,7 @@ public class LoginPanel extends JPanel {
         gbc.anchor = GridBagConstraints.CENTER;
         centerPanel.add(titleLabel, gbc);
         
-        JLabel subtitleLabel = new JLabel("Secure Banking Solutions");
+        JLabel subtitleLabel = new JLabel("Tozus Banking Solutions");
         subtitleLabel.setFont(new Font("Arial", Font.ITALIC, 16));
         subtitleLabel.setForeground(new Color(70, 130, 180));
         gbc.gridy = 1;
@@ -89,7 +89,7 @@ public class LoginPanel extends JPanel {
         loginButton = new JButton("Login");
         loginButton.setFont(new Font("Arial", Font.BOLD, 14));
         loginButton.setBackground(new Color(70, 130, 180));
-        loginButton.setForeground(Color.WHITE);
+        loginButton.setForeground(Color.BLACK);
         loginButton.setFocusPainted(false);
         loginButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -99,7 +99,7 @@ public class LoginPanel extends JPanel {
         registerButton = new JButton("Register");
         registerButton.setFont(new Font("Arial", Font.BOLD, 14));
         registerButton.setBackground(new Color(60, 179, 113));
-        registerButton.setForeground(Color.WHITE);
+        registerButton.setForeground(Color.BLACK);
         registerButton.setFocusPainted(false);
         registerButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         registerButton.setCursor(new Cursor(Cursor.HAND_CURSOR));

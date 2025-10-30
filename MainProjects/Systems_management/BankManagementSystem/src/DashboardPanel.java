@@ -9,7 +9,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
-import java.time.chrono.JapaneseChronology;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -186,7 +185,7 @@ public class DashboardPanel extends JPanel {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 13));
         button.setBackground(bgColor);
-        button.setForeground(Color.WHITE);
+        button.setForeground(Color.BLACK);
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));

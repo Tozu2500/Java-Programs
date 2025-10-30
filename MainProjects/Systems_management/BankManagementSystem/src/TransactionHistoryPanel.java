@@ -62,7 +62,7 @@ public class TransactionHistoryPanel extends JPanel {
         backButton = new JButton("Back to Dashboard");
         backButton.setFont(new Font("Arial", Font.BOLD, 13));
         backButton.setBackground(new Color(70, 130, 180));
-        backButton.setForeground(Color.WHITE);
+        backButton.setForeground(Color.BLACK);
         backButton.setFocusPainted(false);
         backButton.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
         backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));

@@ -104,7 +104,7 @@ public class RegistrationPanel extends JPanel {
         registerButton = new JButton("Register");
         registerButton.setFont(new Font("Arial", Font.BOLD, 14));
         registerButton.setBackground(new Color(60, 179, 113));
-        registerButton.setForeground(Color.WHITE);
+        registerButton.setForeground(Color.BLACK);
         registerButton.setFocusPainted(false);
         registerButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         registerButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -114,7 +114,7 @@ public class RegistrationPanel extends JPanel {
         backButton = new JButton("Back to Login");
         backButton.setFont(new Font("Arial", Font.BOLD, 14));
         backButton.setBackground(new Color(70, 130, 180));
-        backButton.setForeground(Color.WHITE);
+        backButton.setForeground(Color.BLACK);
         backButton.setFocusPainted(false);
         backButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));

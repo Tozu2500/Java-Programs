@@ -50,7 +50,7 @@ public class ProfilePanel extends JPanel {
         backButton = new JButton("Back to Dashboard");
         backButton.setFont(new Font("Arial", Font.BOLD, 13));
         backButton.setBackground(new Color(70, 130, 180));
-        backButton.setForeground(Color.WHITE);
+        backButton.setForeground(Color.BLACK);
         backButton.setFocusPainted(false);
         backButton.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
         backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -146,7 +146,7 @@ public class ProfilePanel extends JPanel {
         updateProfileButton = new JButton("Update Profile");
         updateProfileButton.setFont(new Font("Arial", Font.BOLD, 14));
         updateProfileButton.setBackground(new Color(60, 179, 113));
-        updateProfileButton.setForeground(Color.WHITE);
+        updateProfileButton.setForeground(Color.BLACK);
         updateProfileButton.setFocusPainted(false);
         updateProfileButton.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
         updateProfileButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -207,7 +207,7 @@ public class ProfilePanel extends JPanel {
         changePasswordButton = new JButton("Change Password");
         changePasswordButton.setFont(new Font("Arial", Font.BOLD, 14));
         changePasswordButton.setBackground(new Color(255, 140, 0));
-        changePasswordButton.setForeground(Color.WHITE);
+        changePasswordButton.setForeground(Color.BLACK);
         changePasswordButton.setFocusPainted(false);
         changePasswordButton.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
         changePasswordButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
