@@ -1,6 +1,7 @@
 
 import java.awt.CardLayout;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
@@ -59,5 +60,28 @@ public class MainFrame extends JFrame {
         profilePanel = new ProfilePanel(this);
         mainPanel.add(profilePanel, "profile");
         cardLayout.show(mainPanel, "profile");
+    }
+
+    public void showAdminPanel() {
+        User currentUser = BankSystem.getInstance().getCurrentUser();
+        if (currentUser == null || !currentUser.isAdmin()) {
+            JOptionPane.showMessageDialog(this,
+                "Access denied. Admin privileges required.",
+                "Access Denied", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (adminPanel != null) {
+            mainPanel.remove(adminPanel);
+        }
+        adminPanel = new AdminPanel(this);
+        mainPanel.add(adminPanel, "admin");
+        cardLayout.show(mainPanel, "admin");
+    }
+
+    public void showTransactionHistory(BankAccount account) {
+        TransactionHistoryPanel historyPanel = new TransactionHistoryPanel(this, account);
+        mainPanel.add(historyPanel, "history");
+        cardLayout.show(mainPanel, "history");
     }
 }
