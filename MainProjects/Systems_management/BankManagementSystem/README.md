@@ -6,6 +6,7 @@ This is a simple multiple interface banking application in Java with Swing.
 
 ## Default Admin Account
 Username: admin
-#
+
 Password: admin123
+#
 
