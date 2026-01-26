@@ -16,13 +16,10 @@ import jakarta.transaction.Transactional;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository,
-                        CategoryRepository, categoryRepository) {
+    public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.categoryRepository = categoryRepository;
     }
 
     public List<Product> findAll() {
@@ -34,13 +31,16 @@ public class ProductService {
     }
 
     public Product save(Product product) {
-        // Business logic here
         validateProduct(product);
         return productRepository.save(product);
     }
 
     public void deleteById(Long id) {
         productRepository.deleteById(id);
+    }
+
+    public boolean existsById(Long id) {
+        return productRepository.existsById(id);
     }
 
     public List<Product> search(String name, Double minPrice, Double maxPrice) {
@@ -54,7 +54,7 @@ public class ProductService {
     }
 
     private void validateProduct(Product product) {
-        if (product.getPrice() < 0) {
+        if (product.getPrice() != null && product.getPrice() < 0) {
             throw new IllegalArgumentException("Price cannot be negative");
         }
     }
