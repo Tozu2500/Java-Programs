@@ -75,15 +75,3 @@ public class HashSetDemo {
 		System.out.println("Unique user IDs: " + ids);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
