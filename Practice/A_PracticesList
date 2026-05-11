@@ -1,0 +1,2019 @@
+# 400 Java Practice Exercises
+
+The ones marked with " -- " at the end have been completed.
+
+## Repository Structure
+
+```
+java-practice-exercises/
+├── README.md
+├── .gitignore
+├── src/
+│   ├── basics/
+│   │   ├── E001_HelloWorld.java
+│   │   ├── E002_Variables.java
+│   │   ├── E003_DataTypes.java
+│   │   ├── E004_ArithmeticOperations.java
+│   │   ├── E005_InputOutput.java
+│   │   ├── E006_TypeCasting.java
+│   │   ├── E007_Constants.java
+│   │   ├── E008_Comments.java
+│   │   ├── E009_Operators.java
+│   │   └── E010_ScannerUsage.java
+│   │
+│   ├── conditionals/
+│   │   ├── E011_IfElse.java
+│   │   ├── E012_EvenOdd.java
+│   │   ├── E013_MaxOfThree.java
+│   │   ├── E014_PositiveNegativeZero.java
+│   │   ├── E015_LeapYear.java
+│   │   ├── E016_GradeCalculator.java
+│   │   ├── E017_VowelConsonant.java
+│   │   ├── E018_DaysInMonth.java
+│   │   ├── E019_SwitchCase.java
+│   │   ├── E020_NestedIfElse.java
+│   │   ├── E021_TernaryOperator.java
+│   │   ├── E022_CompareNumbers.java
+│   │   ├── E023_CharacterCheck.java
+│   │   ├── E024_AgeCategory.java
+│   │   └── E025_CalculatorSwitch.java
+│   │
+│   ├── loops/
+│   │   ├── E026_ForLoop.java
+│   │   ├── E027_WhileLoop.java
+│   │   ├── E028_DoWhileLoop.java
+│   │   ├── E029_PrintNumbers.java
+│   │   ├── E030_ReverseNumbers.java
+│   │   ├── E031_MultiplicationTable.java
+│   │   ├── E032_Factorial.java
+│   │   ├── E033_SumOfDigits.java
+│   │   ├── E034_ReverseNumber.java
+│   │   ├── E035_PalindromeNumber.java
+│   │   ├── E036_ArmstrongNumber.java
+│   │   ├── E037_FibonacciSeries.java
+│   │   ├── E038_PrimeCheck.java
+│   │   ├── E039_PrintPrimes.java
+│   │   ├── E040_GCD.java
+│   │   ├── E041_LCM.java
+│   │   ├── E042_NestedLoops.java
+│   │   ├── E043_Patterns.java
+│   │   ├── E044_BreakStatement.java
+│   │   ├── E045_ContinueStatement.java
+│   │   ├── E046_SumOfNNumbers.java
+│   │   ├── E047_PowerCalculation.java
+│   │   ├── E048_DigitCount.java
+│   │   └── E049_PerfectNumber.java
+│   │
+│   ├── arrays/
+│   │   ├── E050_ArrayDeclaration.java --
+│   │   ├── E051_ArrayInitialization.java --
+│   │   ├── E052_PrintArray.java --
+│   │   ├── E053_ArraySum.java --
+│   │   ├── E054_ArrayAverage.java --
+│   │   ├── E055_FindMax.java --
+│   │   ├── E056_FindMin.java --
+│   │   ├── E057_CountEvenOdd.java --
+│   │   ├── E058_ReverseArray.java --
+│   │   ├── E059_CopyArray.java --
+│   │   ├── E060_ArraySearch.java --
+│   │   ├── E061_SecondLargest.java
+│   │   ├── E062_RemoveDuplicates.java --
+│   │   ├── E063_FrequencyCount.java --
+│   │   ├── E064_MergeTwoArrays.java
+│   │   ├── E065_ArrayIntersection.java
+│   │   ├── E066_ArrayUnion.java
+│   │   ├── E067_RotateArray.java
+│   │   ├── E068_ShiftElements.java
+│   │   ├── E069_SortCheck.java
+│   │   ├── E070_PairSum.java
+│   │   ├── E071_MissingNumber.java
+│   │   ├── E072_DuplicateFinder.java
+│   │   ├── E073_MoveZeros.java
+│   │   ├── E074_MajorityElement.java
+│   │   ├── E075_ArrayPartition.java
+│   │   ├── E076_TwoDArray.java
+│   │   ├── E077_MatrixAddition.java --
+│   │   ├── E078_MatrixMultiplication.java
+│   │   ├── E079_MatrixTranspose.java
+│   │   ├── E080_DiagonalSum.java
+│   │   ├── E081_RowSum.java
+│   │   ├── E082_ColumnSum.java
+│   │   ├── E083_SpiralMatrix.java
+│   │   ├── E084_MatrixRotation.java
+│   │   ├── E085_JaggedArray.java
+│   │   ├── E086_ThreeDArray.java
+│   │   ├── E087_ArrayOfObjects.java
+│   │   ├── E088_SubarraySum.java
+│   │   ├── E089_MaxSubarraySum.java
+│   │   ├── E090_MinSubarraySum.java
+│   │   ├── E091_ConsecutiveSequence.java
+│   │   ├── E092_ArrayRearrange.java
+│   │   ├── E093_KthLargest.java
+│   │   ├── E094_KthSmallest.java
+│   │   ├── E095_MedianOfArray.java
+│   │   ├── E096_ArrayEquilibrium.java
+│   │   ├── E097_TrappingRainwater.java
+│   │   ├── E098_MaxProduct.java
+│   │   └── E099_StockBuySell.java
+│   │
+│   ├── strings/
+│   │   ├── E100_StringDeclaration.java --
+│   │   ├── E101_StringLength.java --
+│   │   ├── E102_StringConcatenation.java --
+│   │   ├── E103_StringComparison.java
+│   │   ├── E104_StringCase.java
+│   │   ├── E105_Substring.java
+│   │   ├── E106_CharAt.java
+│   │   ├── E107_IndexOf.java
+│   │   ├── E108_Replace.java
+│   │   ├── E109_Trim.java
+│   │   ├── E110_Split.java
+│   │   ├── E111_Join.java
+│   │   ├── E112_StartsWith.java
+│   │   ├── E113_EndsWith.java
+│   │   ├── E114_Contains.java
+│   │   ├── E115_IsEmpty.java
+│   │   ├── E116_VowelCount.java
+│   │   ├── E117_ConsonantCount.java
+│   │   ├── E118_WordCount.java
+│   │   ├── E119_ReverseString.java
+│   │   ├── E120_PalindromeString.java
+│   │   ├── E121_Anagram.java
+│   │   ├── E122_CharacterFrequency.java --
+│   │   ├── E123_FirstNonRepeating.java
+│   │   ├── E124_RemoveWhitespace.javae
+│   │   ├── E125_RemoveDuplicates.java
+│   │   ├── E126_PermutationsString.java
+│   │   ├── E127_LongestWord.java
+│   │   ├── E128_ShortestWord.java
+│   │   ├── E129_StringRotation.java
+│   │   ├── E130_StringCompression.java
+│   │   ├── E131_ValidParentheses.java
+│   │   ├── E132_LongestPalindrome.java
+│   │   ├── E133_LongestCommonPrefix.java
+│   │   ├── E134_GroupAnagrams.java
+│   │   ├── E135_StringToInt.java
+│   │   ├── E136_IntToString.java
+│   │   ├── E137_RomanToInteger.java
+│   │   ├── E138_IntegerToRoman.java
+│   │   ├── E139_ValidateIPAddress.java
+│   │   └── E140_MinWindowSubstring.java
+│   │
+│   ├── searching/
+│   │   ├── E141_LinearSearch.java
+│   │   ├── E142_BinarySearch.java
+│   │   ├── E143_RecursiveBinarySearch.java
+│   │   ├── E144_JumpSearch.java
+│   │   ├── E145_InterpolationSearch.java
+│   │   ├── E146_ExponentialSearch.java
+│   │   ├── E147_TernarySearch.java
+│   │   ├── E148_FibonacciSearch.java
+│   │   ├── E149_SearchInRotated.java
+│   │   ├── E150_FirstOccurrence.java
+│   │   ├── E151_LastOccurrence.java
+│   │   ├── E152_CountOccurrences.java
+│   │   ├── E153_SearchIn2DMatrix.java
+│   │   ├── E154_PeakElement.java
+│   │   └── E155_SearchRange.java
+│   │
+│   ├── sorting/
+│   │   ├── E156_BubbleSort.java --
+│   │   ├── E157_SelectionSort.java --
+│   │   ├── E158_InsertionSort.java
+│   │   ├── E159_MergeSort.java --
+│   │   ├── E160_QuickSort.java
+│   │   ├── E161_HeapSort.java
+│   │   ├── E162_CountingSort.java
+│   │   ├── E163_RadixSort.java
+│   │   ├── E164_BucketSort.java
+│   │   ├── E165_ShellSort.java
+│   │   ├── E166_CocktailSort.java
+│   │   ├── E167_GnomeSort.java
+│   │   ├── E168_CombSort.java
+│   │   ├── E169_TimSort.java
+│   │   ├── E170_PancakeSort.java
+│   │   ├── E171_BogoSort.java
+│   │   ├── E172_SortByFrequency.java
+│   │   ├── E173_WaveSort.java
+│   │   ├── E174_DutchNationalFlag.java
+│   │   └── E175_CustomComparator.java
+│   │
+│   ├── recursion/
+│   │   ├── E176_BasicRecursion.java
+│   │   ├── E177_FactorialRecursive.java
+│   │   ├── E178_FibonacciRecursive.java
+│   │   ├── E179_SumRecursive.java
+│   │   ├── E180_PowerRecursive.java
+│   │   ├── E181_GCDRecursive.java
+│   │   ├── E182_ReverseString.java
+│   │   ├── E183_PalindromeCheck.java
+│   │   ├── E184_BinarySearchRecursive.java
+│   │   ├── E185_TowerOfHanoi.java
+│   │   ├── E186_ArraySum.java
+│   │   ├── E187_CountDigits.java
+│   │   ├── E188_PrintNumbers.java
+│   │   ├── E189_StringPermutations.java
+│   │   └── E190_Subsets.java
+│   │
+│   ├── math/
+│   │   ├── E191_DecimalToBinary.java
+│   │   ├── E192_BinaryToDecimal.java
+│   │   ├── E193_DecimalToOctal.java
+│   │   ├── E194_DecimalToHex.java
+│   │   ├── E195_BaseConversion.java
+│   │   ├── E196_PrimeFactorization.java
+│   │   ├── E197_SieveOfEratosthenes.java
+│   │   ├── E198_ModularExponentiation.java
+│   │   ├── E199_EulerTotient.java
+│   │   ├── E200_CatalanNumber.java
+│   │   ├── E201_NCR_Combinations.java
+│   │   ├── E202_NPR_Permutations.java
+│   │   ├── E203_PascalTriangle.java
+│   │   ├── E204_MatrixExponentiation.java
+│   │   ├── E205_FastPower.java
+│   │   ├── E206_SquareRoot.java
+│   │   ├── E207_CubeRoot.java
+│   │   ├── E208_IsPowerOfTwo.java
+│   │   ├── E209_NextPowerOfTwo.java
+│   │   └── E210_PrimalityTest.java
+│   │
+│   ├── bitmanipulation/
+│   │   ├── E211_SetBit.java --
+│   │   ├── E212_ClearBit.java
+│   │   ├── E213_ToggleBit.java
+│   │   ├── E214_CheckBit.java
+│   │   ├── E215_CountSetBits.java
+│   │   ├── E216_PowerOfTwo.java
+│   │   ├── E217_SwapNumbers.java
+│   │   ├── E218_BitwiseOperators.java
+│   │   ├── E219_EvenOdd.java
+│   │   ├── E220_MultiplyByTwo.java
+│   │   ├── E221_DivideByTwo.java
+│   │   ├── E222_RightmostSetBit.java
+│   │   ├── E223_TurnOffRightmost.java
+│   │   ├── E224_IsPowerOfFour.java
+│   │   ├── E225_XORProperties.java
+│   │   ├── E226_MissingNumber.java
+│   │   ├── E227_SingleNumber.java
+│   │   ├── E228_TwoOddOccurring.java
+│   │   ├── E229_BitReverse.java
+│   │   └── E230_GrayCode.java
+│   │
+│   ├── datastructures/
+│   │   ├── E231_StackArray.java
+│   │   ├── E232_StackLinkedList.java
+│   │   ├── E233_QueueArray.java
+│   │   ├── E234_QueueLinkedList.java
+│   │   ├── E235_CircularQueue.java
+│   │   ├── E236_Deque.java
+│   │   ├── E237_PriorityQueue.java
+│   │   ├── E238_LinkedListBasic.java
+│   │   ├── E239_DoublyLinkedList.java
+│   │   ├── E240_CircularLinkedList.java
+│   │   ├── E241_ReverseLinkedList.java
+│   │   ├── E242_DetectCycle.java
+│   │   ├── E243_MiddleElement.java
+│   │   ├── E244_MergeLinkedLists.java
+│   │   ├── E245_HashMapImplementation.java
+│   │   ├── E246_HashSetImplementation.java
+│   │   ├── E247_BinaryTree.java --
+│   │   ├── E248_BST.java
+│   │   ├── E249_TreeTraversals.java
+│   │   ├── E250_TreeHeight.java
+│   │   ├── E251_LevelOrder.java
+│   │   ├── E252_LowestCommonAncestor.java
+│   │   ├── E253_GraphAdjacencyMatrix.java
+│   │   ├── E254_GraphAdjacencyList.java
+│   │   ├── E255_BFS.java
+│   │   ├── E256_DFS.java
+│   │   ├── E257_Trie.java
+│   │   ├── E258_Heap.java
+│   │   ├── E259_DisjointSet.java
+│   │   └── E260_SegmentTree.java
+│   │
+│   ├── dynamicprogramming/
+│   │   ├── E261_FibonacciDP.java --
+│   │   ├── E262_Memoization.java
+│   │   ├── E263_Tabulation.java
+│   │   ├── E264_ClimbingStairs.java
+│   │   ├── E265_MinCostClimbing.java
+│   │   ├── E266_CoinChange.java
+│   │   ├── E267_UnboundedKnapsack.java
+│   │   ├── E268_ZeroOneKnapsack.java
+│   │   ├── E269_SubsetSum.java
+│   │   ├── E270_PartitionProblem.java
+│   │   ├── E271_LongestCommonSubsequence.java
+│   │   ├── E272_LongestIncreasingSubsequence.java
+│   │   ├── E273_EditDistance.java
+│   │   ├── E274_MatrixChainMultiplication.java
+│   │   ├── E275_EggDropping.java
+│   │   ├── E276_RodCutting.java
+│   │   ├── E277_MaximumSumSubarray.java
+│   │   ├── E278_BurstBalloons.java
+│   │   ├── E279_WildcardMatching.java
+│   │   └── E280_RegexMatching.java
+│   │
+│   ├── greedy/
+│   │   ├── E281_ActivitySelection.java
+│   │   ├── E282_FractionalKnapsack.java
+│   │   ├── E283_JobSequencing.java
+│   │   ├── E284_HuffmanCoding.java
+│   │   ├── E285_MinimumPlatforms.java
+│   │   ├── E286_MinCoins.java
+│   │   ├── E287_WaterConnection.java
+│   │   ├── E288_MeetingRooms.java
+│   │   ├── E289_JumpGame.java
+│   │   └── E290_GasStation.java
+│   │
+│   ├── backtracking/
+│   │   ├── E291_NQueens.java
+│   │   ├── E292_Sudoku.java
+│   │   ├── E293_RatInMaze.java
+│   │   ├── E294_KnightTour.java
+│   │   ├── E295_HamiltonianPath.java
+│   │   ├── E296_GraphColoring.java
+│   │   ├── E297_SubsetGeneration.java
+│   │   ├── E298_StringPermutations.java
+│   │   ├── E299_CombinationSum.java
+│   │   └── E300_WordSearch.java
+│   │
+│   ├── graphalgorithms/
+│   │   ├── E301_DijkstraShortestPath.java
+│   │   ├── E302_BellmanFord.java
+│   │   ├── E303_FloydWarshall.java
+│   │   ├── E304_PrimsMST.java
+│   │   ├── E305_KruskalsMST.java
+│   │   ├── E306_TopologicalSort.java
+│   │   ├── E307_CycleDetection.java
+│   │   ├── E308_BipartiteCheck.java
+│   │   ├── E309_ArticulationPoints.java
+│   │   ├── E310_Bridges.java
+│   │   ├── E311_StronglyConnectedComponents.java
+│   │   ├── E312_TarjansAlgorithm.java
+│   │   ├── E313_KosarajuAlgorithm.java
+│   │   ├── E314_MaxFlow.java
+│   │   └── E315_TravelingSalesman.java
+│   │
+│   ├── algorithms/
+│   │   ├── E316_TwoPointer.java
+│   │   ├── E317_SlidingWindow.java
+│   │   ├── E318_KadanesAlgorithm.java
+│   │   ├── E319_MooresVoting.java
+│   │   ├── E320_FloydCycleDetection.java
+│   │   ├── E321_KMPAlgorithm.java
+│   │   ├── E322_RabinKarp.java
+│   │   ├── E323_ZAlgorithm.java
+│   │   ├── E324_BoyerMoore.java
+│   │   ├── E325_ManacherAlgorithm.java
+│   │   ├── E326_UnionFind.java
+│   │   ├── E327_QuickSelect.java
+│   │   ├── E328_ReservoirSampling.java
+│   │   ├── E329_FisherYatesShuffle.java
+│   │   └── E330_FastFourierTransform.java
+│   │
+│   ├── oop/
+│   │   ├── E331_ClassObject.java
+│   │   ├── E332_Constructor.java
+│   │   ├── E333_ThisKeyword.java
+│   │   ├── E334_StaticKeyword.java
+│   │   ├── E335_Inheritance.java
+│   │   ├── E336_Polymorphism.java
+│   │   ├── E337_MethodOverloading.java
+│   │   ├── E338_MethodOverriding.java
+│   │   ├── E339_Encapsulation.java
+│   │   ├── E340_Abstraction.java
+│   │   ├── E341_AbstractClass.java
+│   │   ├── E342_Interface.java
+│   │   ├── E343_MultipleInheritance.java
+│   │   ├── E344_SuperKeyword.java
+│   │   ├── E345_FinalKeyword.java
+│   │   ├── E346_InnerClass.java
+│   │   ├── E347_AnonymousClass.java
+│   │   ├── E348_EnumClass.java
+│   │   ├── E349_SingletonPattern.java
+│   │   └── E350_FactoryPattern.java
+│   │
+│   ├── exceptions/
+│   │   ├── E351_TryCatch.java
+│   │   ├── E352_MultiCatch.java
+│   │   ├── E353_Finally.java
+│   │   ├── E354_ThrowKeyword.java
+│   │   ├── E355_ThrowsKeyword.java
+│   │   ├── E356_CustomException.java
+│   │   ├── E357_CheckedException.java
+│   │   ├── E358_UncheckedException.java
+│   │   ├── E359_ChainedException.java
+│   │   └── E360_TryWithResources.java
+│   │
+│   ├── collections/
+│   │   ├── E361_ArrayList.java
+│   │   ├── E362_LinkedList.java
+│   │   ├── E363_Vector.java
+│   │   ├── E364_Stack.java
+│   │   ├── E365_HashMap.java
+│   │   ├── E366_TreeMap.java
+│   │   ├── E367_LinkedHashMap.java
+│   │   ├── E368_HashSet.java
+│   │   ├── E369_TreeSet.java
+│   │   ├── E370_LinkedHashSet.java
+│   │   ├── E371_PriorityQueue.java
+│   │   ├── E372_Deque.java
+│   │   ├── E373_Iterator.java
+│   │   ├── E374_ListIterator.java
+│   │   ├── E375_Comparator.java
+│   │   ├── E376_Comparable.java
+│   │   ├── E377_Collections.java
+│   │   ├── E378_Arrays.java
+│   │   ├── E379_StreamAPI.java
+│   │   └── E380_Optional.java
+│   │
+│   ├── multithreading/
+│   │   ├── E381_ThreadCreation.java --
+│   │   ├── E382_RunnableInterface.java --
+│   │   ├── E383_ThreadLifecycle.java
+│   │   ├── E384_SleepMethod.java
+│   │   ├── E385_JoinMethod.java
+│   │   ├── E386_Synchronization.java
+│   │   ├── E387_DeadLock.java
+│   │   ├── E388_InterThreadComm.java
+│   │   ├── E389_ProducerConsumer.java
+│   │   └── E390_ThreadPool.java
+│   │
+│   └── advanced/
+│       ├── E391_Lambda.java
+│       ├── E392_FunctionalInterface.java
+│       ├── E393_MethodReference.java
+│       ├── E394_DefaultMethods.java
+│       ├── E395_Generics.java
+│       ├── E396_Annotations.java
+│       ├── E397_Reflection.java
+│       ├── E398_Serialization.java
+│       ├── E399_FileHandling.java
+│       └── E400_JUnitTesting.java
+
+## Complete Exercise List
+
+### Basics (1-10)
+1. Hello World program
+2. Declare and use variables
+3. All primitive data types
+4. Basic arithmetic operations
+5. Take user input with Scanner
+6. Type casting examples
+7. Using constants (final keyword)
+8. Different types of comments
+9. All operators (arithmetic, logical, relational)
+10. Scanner class usage
+
+### Conditionals (11-25)
+11. Basic if-else statement
+12. Check if number is even or odd
+13. Find maximum of three numbers
+14. Check positive, negative, or zero
+15. Check if year is leap year
+16. Grade calculator based on marks
+17. Check vowel or consonant
+18. Calculate days in a month
+19. Switch case statement
+20. Nested if-else
+21. Ternary operator usage
+22. Compare two numbers
+23. Check character type
+24. Determine age category
+25. Simple calculator using switch
+
+### Loops (26-49)
+26. For loop basics
+27. While loop basics
+28. Do-while loop basics
+29. Print numbers 1 to N
+30. Print numbers in reverse
+31. Multiplication table
+32. Calculate factorial
+33. Sum of digits
+34. Reverse a number
+35. Check palindrome number
+36. Armstrong number check
+37. Fibonacci series
+38. Check if number is prime
+39. Print all primes up to N
+40. Find GCD of two numbers
+41. Find LCM of two numbers
+42. Nested loop patterns
+43. Various star patterns
+44. Break statement usage
+45. Continue statement usage
+46. Sum of first N natural numbers
+47. Calculate power of number
+48. Count digits in number
+49. Perfect number check
+
+### Arrays (50-99)
+50. Declare and initialize array
+51. Initialize array with values
+52. Print all array elements
+53. Sum of array elements
+54. Average of array elements
+55. Find maximum element
+56. Find minimum element
+57. Count even and odd numbers
+58. Reverse an array
+59. Copy array to another
+60. Search element in array
+61. Find second largest element
+62. Remove duplicates from array
+63. Count frequency of elements
+64. Merge two arrays
+65. Find intersection of arrays
+66. Find union of arrays
+67. Rotate array by K positions
+68. Shift elements left/right
+69. Check if array is sorted
+70. Find pair with given sum
+71. Find missing number in 1 to N
+72. Find duplicate elements
+73. Move all zeros to end
+74. Find majority element
+75. Partition array around pivot
+76. Create 2D array
+77. Add two matrices
+78. Multiply two matrices
+79. Transpose of matrix
+80. Sum of diagonal elements
+81. Sum of each row
+82. Sum of each column
+83. Print matrix in spiral order
+84. Rotate matrix 90 degrees
+85. Jagged array creation
+86. 3D array operations
+87. Array of objects
+88. Find subarray with given sum
+89. Maximum subarray sum (Kadane's)
+90. Minimum subarray sum
+91. Longest consecutive sequence
+92. Rearrange positive/negative
+93. Find Kth largest element
+94. Find Kth smallest element
+95. Find median of array
+96. Array equilibrium index
+97. Trapping rainwater problem
+98. Maximum product subarray
+99. Stock buy and sell problem
+
+### Strings (100-140)
+100. String declaration methods
+101. Find string length
+102. Concatenate strings
+103. Compare two strings
+104. Convert case
+105. Extract substring
+106. Access character at index
+107. Find index of character
+108. Replace characters
+109. Trim whitespace
+110. Split string
+111. Join string array
+112. Check starts with prefix
+113. Check ends with suffix
+114. Check contains substring
+115. Check if string is empty
+116. Count vowels in string
+117. Count consonants
+118. Count words in string
+119. Reverse a string
+120. Check string palindrome
+121. Check if two strings are anagrams
+122. Character frequency in string
+123. First non-repeating character
+124. Remove all whitespace
+125. Remove duplicate characters
+126. All permutations of string
+127. Find longest word
+128. Find shortest word
+129. Check string rotation
+
+
+Here is some more!
+├── advanced_oop/
+│   │   ├── E401_CompositionVsInheritance.java
+│   │   ├── E402_DiamondProblem.java
+│   │   ├── E403_CovarianceReturnType.java
+│   │   ├── E404_ObjectCloning.java
+│   │   ├── E405_DeepVsShallowCopy.java
+│   │   ├── E406_ImmutableClass.java
+│   │   ├── E407_BuilderPattern.java
+│   │   ├── E408_PrototypePattern.java
+│   │   ├── E409_AbstractFactoryPattern.java
+│   │   ├── E410_DependencyInjection.java
+│   │   ├── E411_StrategyPattern.java
+│   │   ├── E412_ObserverPattern.java
+│   │   ├── E413_DecoratorPattern.java
+│   │   ├── E414_AdapterPattern.java
+│   │   ├── E415_FacadePattern.java
+│   │   ├── E416_ProxyPattern.java
+│   │   ├── E417_ChainOfResponsibility.java
+│   │   ├── E418_CommandPattern.java
+│   │   ├── E419_MediatorPattern.java
+│   │   ├── E420_MementoPattern.java
+│   │   ├── E421_StatePattern.java
+│   │   ├── E422_TemplateMethodPattern.java
+│   │   ├── E423_VisitorPattern.java
+│   │   ├── E424_InterpreterPattern.java
+│   │   ├── E425_CompositePattern.java
+│   │   ├── E426_FlyweightPattern.java
+│   │   ├── E427_BridgePattern.java
+│   │   ├── E428_ObjectPoolPattern.java
+│   │   ├── E429_NullObjectPattern.java
+│   │   └── E430_SpecificationPattern.java
+│   │
+│   ├── advanced_collections/
+│   │   ├── E431_CustomArrayList.java
+│   │   ├── E432_CustomLinkedList.java
+│   │   ├── E433_CustomHashMap.java
+│   │   ├── E434_CustomTreeMap.java
+│   │   ├── E435_CustomHashSet.java
+│   │   ├── E436_LRUCache.java
+│   │   ├── E437_LFUCache.java
+│   │   ├── E438_CircularBuffer.java
+│   │   ├── E439_BloomFilter.java
+│   │   ├── E440_SkipList.java
+│   │   ├── E441_ConcurrentHashMap.java
+│   │   ├── E442_CopyOnWriteArrayList.java
+│   │   ├── E443_BlockingQueue.java
+│   │   ├── E444_DelayQueue.java
+│   │   ├── E445_NavigableSet.java
+│   │   ├── E446_WeakHashMap.java
+│   │   ├── E447_IdentityHashMap.java
+│   │   ├── E448_EnumMap.java
+│   │   ├── E449_EnumSet.java
+│   │   ├── E450_BitSet.java
+│   │   ├── E451_CollectionSynchronization.java
+│   │   ├── E452_UnmodifiableCollections.java
+│   │   ├── E453_CollectionViews.java
+│   │   ├── E454_CustomIterator.java
+│   │   ├── E455_SpliteratorImplementation.java
+│   │   ├── E456_NavigableMapOperations.java
+│   │   ├── E457_DequeOperations.java
+│   │   ├── E458_PriorityQueueCustom.java
+│   │   └── E459_MultisetImplementation.java
+│   │
+│   ├── advanced_streams/
+│   │   ├── E460_StreamCreation.java
+│   │   ├── E461_IntermediateOperations.java
+│   │   ├── E462_TerminalOperations.java
+│   │   ├── E463_ParallelStreams.java
+│   │   ├── E464_CustomCollectors.java
+│   │   ├── E465_StreamReduceOperations.java
+│   │   ├── E466_GroupingCollectors.java
+│   │   ├── E467_PartitioningCollectors.java
+│   │   ├── E468_DownstreamCollectors.java
+│   │   ├── E469_FlatMapOperations.java
+│   │   ├── E470_PeekAndDebug.java
+│   │   ├── E471_InfiniteStreams.java
+│   │   ├── E472_StreamConcat.java
+│   │   ├── E473_LazyEvaluation.java
+│   │   ├── E474_StreamPipeline.java
+│   │   ├── E475_OptionalOperations.java
+│   │   ├── E476_StreamToMap.java
+│   │   ├── E477_StreamStatistics.java
+│   │   ├── E478_CustomSpliterator.java
+│   │   └── E479_StreamPerformance.java
+│   │
+│   ├── advanced_concurrency/
+│   │   ├── E480_AtomicVariables.java
+│   │   ├── E481_VolatileKeyword.java
+│   │   ├── E482_ReentrantLock.java
+│   │   ├── E483_ReadWriteLock.java
+│   │   ├── E484_StampedLock.java
+│   │   ├── E485_Semaphore.java
+│   │   ├── E486_CountDownLatch.java
+│   │   ├── E487_CyclicBarrier.java
+│   │   ├── E488_Phaser.java
+│   │   ├── E489_Exchanger.java
+│   │   ├── E490_ForkJoinPool.java
+│   │   ├── E491_RecursiveTask.java
+│   │   ├── E492_RecursiveAction.java
+│   │   ├── E493_CompletableFuture.java
+│   │   ├── E494_FutureTask.java
+│   │   ├── E495_ThreadLocalUsage.java
+│   │   ├── E496_ThreadFactory.java
+│   │   ├── E497_ExecutorService.java
+│   │   ├── E498_ScheduledExecutor.java
+│   │   ├── E499_CustomThreadPool.java
+│   │   ├── E500_RaceCondition.java
+│   │   ├── E501_LivelockExample.java
+│   │   ├── E502_Starvation.java
+│   │   ├── E503_ThreadSafeSingleton.java
+│   │   ├── E504_DoubleCheckedLocking.java
+│   │   ├── E505_ProducerConsumerLock.java
+│   │   ├── E506_ReaderWriterProblem.java
+│   │   ├── E507_DiningPhilosophers.java
+│   │   ├── E508_BoundedBuffer.java
+│   │   └── E509_ParallelMergeSort.java
+│   │
+│   ├── functional_programming/
+│   │   ├── E510_PureFunctions.java
+│   │   ├── E511_HigherOrderFunctions.java
+│   │   ├── E512_Closures.java
+│   │   ├── E513_Currying.java
+│   │   ├── E514_PartialApplication.java
+│   │   ├── E515_FunctionComposition.java
+│   │   ├── E516_MonadsInJava.java
+│   │   ├── E517_OptionalMonad.java
+│   │   ├── E518_StreamMonad.java
+│   │   ├── E519_TryMonad.java
+│   │   ├── E520_EitherType.java
+│   │   ├── E521_LazyEvaluation.java
+│   │   ├── E522_MemoizationPattern.java
+│   │   ├── E523_TailRecursion.java
+│   │   ├── E524_Trampolining.java
+│   │   ├── E525_FunctorPattern.java
+│   │   ├── E526_ApplicativeFunctor.java
+│   │   ├── E527_FoldOperations.java
+│   │   ├── E528_UnfoldOperations.java
+│   │   └── E529_FunctionalDataStructures.java
+│   │
+│   ├── generics_advanced/
+│   │   ├── E530_GenericMethods.java
+│   │   ├── E531_BoundedTypeParameters.java
+│   │   ├── E532_WildcardUpperBound.java
+│   │   ├── E533_WildcardLowerBound.java
+│   │   ├── E534_UnboundedWildcard.java
+│   │   ├── E535_GenericInheritance.java
+│   │   ├── E536_TypeErasure.java
+│   │   ├── E537_BridgeMethods.java
+│   │   ├── E538_RecursiveTypeBounds.java
+│   │   ├── E539_GenericArrayCreation.java
+│   │   ├── E540_MultipleTypeBounds.java
+│   │   ├── E541_GenericSingleton.java
+│   │   ├── E542_HeterogeneousContainer.java
+│   │   ├── E543_TypeTokens.java
+│   │   ├── E544_SuperTypeTokens.java
+│   │   ├── E545_GenericBuilder.java
+│   │   ├── E546_VarianceInJava.java
+│   │   ├── E547_GenericDAO.java
+│   │   ├── E548_GenericRepository.java
+│   │   └── E549_ParameterizedTest.java
+│   │
+│   ├── reflection_api/
+│   │   ├── E550_ClassObject.java
+│   │   ├── E551_GetDeclaredFields.java
+│   │   ├── E552_GetDeclaredMethods.java
+│   │   ├── E553_GetConstructors.java
+│   │   ├── E554_InvokeMethod.java
+│   │   ├── E555_AccessPrivateField.java
+│   │   ├── E556_ModifyFinalField.java
+│   │   ├── E557_CreateInstance.java
+│   │   ├── E558_InspectAnnotations.java
+│   │   ├── E559_GenericTypeInfo.java
+│   │   ├── E560_ProxyPattern.java
+│   │   ├── E561_DynamicProxy.java
+│   │   ├── E562_MethodHandles.java
+│   │   ├── E563_VarHandles.java
+│   │   ├── E564_ReflectionPerformance.java
+│   │   ├── E565_PrivilegedAccess.java
+│   │   ├── E566_ClassLoading.java
+│   │   ├── E567_CustomClassLoader.java
+│   │   ├── E568_AnnotationProcessor.java
+│   │   └── E569_ReflectionUtility.java
+│   │
+│   ├── annotations_custom/
+│   │   ├── E570_CreateAnnotation.java
+│   │   ├── E571_RetentionPolicy.java
+│   │   ├── E572_TargetAnnotation.java
+│   │   ├── E573_InheritedAnnotation.java
+│   │   ├── E574_DocumentedAnnotation.java
+│   │   ├── E575_RepeatableAnnotation.java
+│   │   ├── E576_AnnotationProcessing.java
+│   │   ├── E577_ValidationAnnotation.java
+│   │   ├── E578_ORMAnnotation.java
+│   │   ├── E579_DIAnnotation.java
+│   │   ├── E580_CacheAnnotation.java
+│   │   ├── E581_LoggingAnnotation.java
+│   │   ├── E582_TransactionalAnnotation.java
+│   │   ├── E583_AsyncAnnotation.java
+│   │   ├── E584_RetryAnnotation.java
+│   │   ├── E585_RateLimitAnnotation.java
+│   │   ├── E586_SecurityAnnotation.java
+│   │   ├── E587_MetricsAnnotation.java
+│   │   ├── E588_FeatureFlagAnnotation.java
+│   │   └── E589_AOPWithAnnotations.java
+│   │
+│   ├── io_operations/
+│   │   ├── E590_FileReaderWriter.java
+│   │   ├── E591_BufferedStreams.java
+│   │   ├── E592_DataStreams.java
+│   │   ├── E593_ObjectStreams.java
+│   │   ├── E594_RandomAccessFile.java
+│   │   ├── E595_FileChannels.java
+│   │   ├── E596_MemoryMappedFile.java
+│   │   ├── E597_FileLocking.java
+│   │   ├── E598_PathOperations.java
+│   │   ├── E599_FilesUtility.java
+│   │   ├── E600_DirectoryStream.java
+│   │   ├── E601_WatchService.java
+│   │   ├── E602_FileVisitor.java
+│   │   ├── E603_ZipOperations.java
+│   │   ├── E604_GzipCompression.java
+│   │   ├── E605_PipedStreams.java
+│   │   ├── E606_SequenceInputStream.java
+│   │   ├── E607_PrintWriter.java
+│   │   ├── E608_ScannerAdvanced.java
+│   │   └── E609_ConsoleIO.java
+│   │
+│   ├── nio_advanced/
+│   │   ├── E610_ByteBufferOperations.java
+│   │   ├── E611_DirectBuffer.java
+│   │   ├── E612_BufferViews.java
+│   │   ├── E613_ScatterGather.java
+│   │   ├── E614_SelectorUsage.java
+│   │   ├── E615_NonBlockingServer.java
+│   │   ├── E616_AsynchronousIO.java
+│   │   ├── E617_CompletionHandler.java
+│   │   ├── E618_AsynchronousFileChannel.java
+│   │   ├── E619_AsynchronousSocketChannel.java
+│   │   ├── E620_CharsetEncoding.java
+│   │   ├── E621_CharsetDecoding.java
+│   │   ├── E622_FileAttributeView.java
+│   │   ├── E623_POSIXFilePermissions.java
+│   │   ├── E624_UserDefinedAttributes.java
+│   │   ├── E625_SymbolicLinks.java
+│   │   ├── E626_FileSystemProvider.java
+│   │   ├── E627_ZipFileSystem.java
+│   │   ├── E628_InMemoryFileSystem.java
+│   │   └── E629_CustomFileSystem.java
+│   │
+│   ├── networking/
+│   │   ├── E630_TCPClient.java
+│   │   ├── E631_TCPServer.java
+│   │   ├── E632_UDPClient.java
+│   │   ├── E633_UDPServer.java
+│   │   ├── E634_MulticastSocket.java
+│   │   ├── E635_URLConnection.java
+│   │   ├── E636_HttpURLConnection.java
+│   │   ├── E637_HttpClient.java
+│   │   ├── E638_WebSocketClient.java
+│   │   ├── E639_SSLSocket.java
+│   │   ├── E640_ServerSocket.java
+│   │   ├── E641_MultiThreadedServer.java
+│   │   ├── E642_ThreadPoolServer.java
+│   │   ├── E643_NIOServer.java
+│   │   ├── E644_ChatApplication.java
+│   │   ├── E645_FileTransfer.java
+│   │   ├── E646_HTTPServer.java
+│   │   ├── E647_RESTClient.java
+│   │   ├── E648_ProxyServer.java
+│   │   └── E649_PortScanner.java
+│   │
+│   ├── database_jdbc/
+│   │   ├── E650_JDBCConnection.java
+│   │   ├── E651_PreparedStatement.java
+│   │   ├── E652_CallableStatement.java
+│   │   ├── E653_BatchProcessing.java
+│   │   ├── E654_TransactionManagement.java
+│   │   ├── E655_Savepoints.java
+│   │   ├── E656_ResultSetTypes.java
+│   │   ├── E657_ScrollableResultSet.java
+│   │   ├── E658_UpdatableResultSet.java
+│   │   ├── E659_DatabaseMetaData.java
+│   │   ├── E660_ResultSetMetaData.java
+│   │   ├── E661_ConnectionPooling.java
+│   │   ├── E662_DAOPattern.java
+│   │   ├── E663_ORMBasic.java
+│   │   ├── E664_BlobHandling.java
+│   │   ├── E665_ClobHandling.java
+│   │   ├── E666_RowSet.java
+│   │   ├── E667_CachedRowSet.java
+│   │   ├── E668_JoinRowSet.java
+│   │   └── E669_DatabaseCRUD.java
+│   │
+│   ├── serialization_advanced/
+│   │   ├── E670_CustomSerialization.java
+│   │   ├── E671_Externalizable.java
+│   │   ├── E672_SerialVersionUID.java
+│   │   ├── E673_TransientFields.java
+│   │   ├── E674_SerializationProxy.java
+│   │   ├── E675_EnumSerialization.java
+│   │   ├── E676_SingletonSerialization.java
+│   │   ├── E677_InheritanceSerialization.java
+│   │   ├── E678_CustomReadWrite.java
+│   │   ├── E679_ObjectReplace.java
+│   │   ├── E680_JSONSerialization.java
+│   │   ├── E681_XMLSerialization.java
+│   │   ├── E682_ProtobufBasic.java
+│   │   ├── E683_KryoSerialization.java
+│   │   ├── E684_AvroSerialization.java
+│   │   ├── E685_MessagePackSerialization.java
+│   │   ├── E686_YAMLSerialization.java
+│   │   ├── E687_BinarySerialization.java
+│   │   ├── E688_DeserializationSecurity.java
+│   │   └── E689_SerializationPerformance.java
+│   │
+│   ├── regex_advanced/
+│   │   ├── E690_PatternMatching.java
+│   │   ├── E691_MatcherOperations.java
+│   │   ├── E692_CaptureGroups.java
+│   │   ├── E693_LookaheadLookbehind.java
+│   │   ├── E694_RegexFlags.java
+│   │   ├── E695_EmailValidation.java
+│   │   ├── E696_PhoneValidation.java
+│   │   ├── E697_URLValidation.java
+│   │   ├── E698_IPValidation.java
+│   │   ├── E699_DateValidation.java
+│   │   ├── E700_PasswordValidation.java
+│   │   ├── E701_RegexReplace.java
+│   │   ├── E702_SplitOperations.java
+│   │   ├── E703_NamedGroups.java
+│   │   ├── E704_BalancedParentheses.java
+│   │   ├── E705_HTMLTagExtraction.java
+│   │   ├── E706_LogParsing.java
+│   │   ├── E707_DataExtraction.java
+│   │   ├── E708_RegexPerformance.java
+│   │   └── E709_CustomPatterns.java
+│   │
+│   ├── datetime_api/
+│   │   ├── E710_LocalDateOperations.java
+│   │   ├── E711_LocalTimeOperations.java
+│   │   ├── E712_LocalDateTimeOperations.java
+│   │   ├── E713_ZonedDateTimeOperations.java
+│   │   ├── E714_InstantOperations.java
+│   │   ├── E715_DurationOperations.java
+│   │   ├── E716_PeriodOperations.java
+│   │   ├── E717_TemporalAdjusters.java
+│   │   ├── E718_CustomTemporalAdjuster.java
+│   │   ├── E719_DateFormatting.java
+│   │   ├── E720_DateParsing.java
+│   │   ├── E721_TimezoneConversion.java
+│   │   ├── E722_BusinessDaysCalculation.java
+│   │   ├── E723_AgeCalculation.java
+│   │   ├── E724_DateRangeOperations.java
+│   │   ├── E725_CalendarOperations.java
+│   │   ├── E726_ChronologyTypes.java
+│   │   ├── E727_ClockImplementation.java
+│   │   ├── E728_TemporalQueries.java
+│   │   └── E729_DateTimeComparison.java
+│   │
+│   ├── testing_advanced/
+│   │   ├── E730_JUnitBasics.java
+│   │   ├── E731_ParameterizedTests.java
+│   │   ├── E732_DynamicTests.java
+│   │   ├── E733_TestLifecycle.java
+│   │   ├── E734_AssertionsAdvanced.java
+│   │   ├── E735_AssumptionsUsage.java
+│   │   ├── E736_ExceptionTesting.java
+│   │   ├── E737_TimeoutTests.java
+│   │   ├── E738_NestedTests.java
+│   │   ├── E739_TaggedTests.java
+│   │   ├── E740_MockitoBasics.java
+│   │   ├── E741_SpyObjects.java
+│   │   ├── E742_ArgumentCaptors.java
+│   │   ├── E743_ArgumentMatchers.java
+│   │   ├── E744_VerificationModes.java
+│   │   ├── E745_TestDoubles.java
+│   │   ├── E746_IntegrationTesting.java
+│   │   ├── E747_TestContainers.java
+│   │   ├── E748_PropertyBasedTesting.java
+│   │   └── E749_MutationTesting.java
+│   │
+│   ├── performance_optimization/
+│   │   ├── E750_StringBuilderVsBuffer.java
+│   │   ├── E751_LazyInitialization.java
+│   │   ├── E752_ObjectPooling.java
+│   │   ├── E753_CachingStrategies.java
+│   │   ├── E754_MemoryLeakDetection.java
+│   │   ├── E755_GarbageCollectionTuning.java
+│   │   ├── E756_WeakReferenceUsage.java
+│   │   ├── E757_SoftReferenceUsage.java
+│   │   ├── E758_PhantomReferenceUsage.java
+│   │   ├── E759_ProfilingBasics.java
+│   │   ├── E760_JMHBenchmarking.java
+│   │   ├── E761_StringInternOptimization.java
+│   │   ├── E762_CollectionPerformance.java
+│   │   ├── E763_AlgorithmComplexity.java
+│   │   ├── E764_ParallelProcessing.java
+│   │   ├── E765_CPUBoundOptimization.java
+│   │   ├── E766_IOBoundOptimization.java
+│   │   ├── E767_DatabaseOptimization.java
+│   │   ├── E768_NetworkOptimization.java
+│   │   └── E769_CodeHotspots.java
+│   │
+│   ├── security/
+│   │   ├── E770_MessageDigestMD5.java
+│   │   ├── E771_SHA256Hashing.java
+│   │   ├── E772_HMACGeneration.java
+│   │   ├── E773_SymmetricEncryption.java
+│   │   ├── E774_AsymmetricEncryption.java
+│   │   ├── E775_RSAKeyPair.java
+│   │   ├── E776_DigitalSignature.java
+│   │   ├── E777_CertificateHandling.java
+│   │   ├── E778_KeyStoreOperations.java
+│   │   ├── E779_SSLContext.java
+│   │   ├── E780_SecureRandom.java
+│   │   ├── E781_PasswordHashing.java
+│   │   ├── E782_JWTTokens.java
+│   │   ├── E783_OAuth2Flow.java
+│   │   ├── E784_InputSanitization.java
+│   │   ├── E785_SQLInjectionPrevention.java
+│   │   ├── E786_XSSPrevention.java
+│   │   ├── E787_CSRFProtection.java
+│   │   ├── E788_SecureFileHandling.java
+│   │   └── E789_SecurityManager.java
+│   │
+│   ├── xml_json/
+│   │   ├── E790_DOMParser.java
+│   │   ├── E791_SAXParser.java
+│   │   ├── E792_StAXParser.java
+│   │   ├── E793_XPathQueries.java
+│   │   ├── E794_XSLTTransformation.java
+│   │   ├── E795_XMLValidation.java
+│   │   ├── E796_JAXBMarshalling.java
+│   │   ├── E797_JAXBUnmarshalling.java
+│   │   ├── E798_JSONParsing.java
+│   │   ├── E799_JSONGeneration.java
+│   │   ├── E800_JacksonObjectMapper.java
+│   │   ├── E801_GsonSerialization.java
+│   │   ├── E802_JSONPathQueries.java
+│   │   ├── E803_JSONSchemaValidation.java
+│   │   ├── E804_XMLToJSON.java
+│   │   ├── E805_JSONToXML.java
+│   │   ├── E806_StreamingJSON.java
+│   │   ├── E807_CustomSerializers.java
+│   │   ├── E808_CustomDeserializers.java
+│   │   └── E809_AnnotationConfig.java
+│   │
+│   ├── messaging/
+│   │   ├── E810_JMSProducer.java
+│   │   ├── E811_JMSConsumer.java
+│   │   ├── E812_QueueMessaging.java
+│   │   ├── E813_TopicMessaging.java
+│   │   ├── E814_MessageSelectors.java
+│   │   ├── E815_DurableSubscribers.java
+│   │   ├── E816_TransactedSessions.java
+│   │   ├── E817_MessagePriority.java
+│   │   ├── E818_MessageExpiration.java
+│   │   ├── E819_RequestReply.java
+│   │   ├── E820_KafkaProducer.java
+│   │   ├── E821_KafkaConsumer.java
+│   │   ├── E822_RabbitMQProducer.java
+│   │   ├── E823_RabbitMQConsumer.java
+│   │   ├── E824_ActiveMQSetup.java
+│   │   ├── E825_MessageFiltering.java
+│   │   ├── E826_MessageTransformation.java
+│   │   ├── E827_DeadLetterQueue.java
+│   │   ├── E828_MessageRetry.java
+│   │   └── E829_EventDrivenArchitecture.java
+│   │
+│   ├── microservices/
+│   │   ├── E830_RESTServiceBasic.java
+│   │   ├── E831_RESTClient.java
+│   │   ├── E832_JSONResponseHandler.java
+│   │   ├── E833_PathParameters.java
+│   │   ├── E834_QueryParameters.java
+│   │   ├── E835_HTTPMethods.java
+│   │   ├── E836_StatusCodes.java
+│   │   ├── E837_ExceptionHandling.java
+│   │   ├── E838_RequestValidation.java
+│   │   ├── E839_ResponseFiltering.java
+│   │   ├── E840_CORSConfiguration.java
+│   │   ├── E841_AuthenticationFilter.java
+│   │   ├── E842_JWTAuthentication.java
+│   │   ├── E843_APIVersioning.java
+│   │   ├── E844_RateLimiting.java
+│   │   ├── E845_CircuitBreaker.java
+│   │   ├── E846_ServiceDiscovery.java
+│   │   ├── E847_LoadBalancing.java
+│   │   ├── E848_HealthCheck.java
+│   │   └── E849_APIGateway.java
+│   │
+│   ├── reactive_programming/
+│   │   ├── E850_FluxBasics.java
+│   │   ├── E851_MonoBasics.java
+│   │   ├── E852_BackpressureHandling.java
+│   │   ├── E853_ReactiveOperators.java
+│   │   ├── E854_HotColdPublishers.java
+│   │   ├── E855_ErrorHandling.java
+│   │   ├── E856_SchedulersUsage.java
+│   │   ├── E857_ReactiveStreams.java
+│   │   ├── E858_CombinePublishers.java
+│   │   ├── E859_TransformOperators.java
+│   │   ├── E860_FilterOperators.java
+│   │   ├── E861_BufferWindow.java
+│   │   ├── E862_FlatMapVariants.java
+│   │   ├── E863_RetryMechanisms.java
+│   │   ├── E864_TimeoutHandling.java
+│   │   ├── E865_ReactiveCache.java
+│   │   ├── E866_ReactiveDatabase.java
+│   │   ├── E867_ReactiveHTTP.java
+│   │   ├── E868_ReactiveWebSocket.java
+│   │   └── E869_ReactiveKafka.java
+│   │
+│   ├── advanced_algorithms/
+│   │   ├── E870_AVLTree.java
+│   │   ├── E871_RedBlackTree.java
+│   │   ├── E872_BTree.java
+│   │   ├── E873_SplayTree.java
+│   │   ├── E874_SuffixTree.java
+│   │   ├── E875_SuffixArray.java
+│   │   ├── E876_FenwickTree.java
+│   │   ├── E877_SegmentTreeLazy.java
+│   │   ├── E878_SparseTable.java
+│   │   ├── E879_ConvexHull.java
+│   │   ├── E880_ClosestPairPoints.java
+│   │   ├── E881_LineIntersection.java
+│   │   ├── E882_VoronoiDiagram.java
+│   │   ├── E883_AhoCorasick.java
+│   │   ├── E884_SuffixAutomaton.java
+│   │   ├── E885_PalindromicTree.java
+│   │   ├── E886_HungarianAlgorithm.java
+│   │   ├── E887_EdmondsKarp.java
+│   │   ├── E888_DinicsAlgorithm.java
+│   │   └── E889_HopcroftKarp.java
+│   │
+│   ├── machine_learning/
+│   │   ├── E890_LinearRegression.java
+│   │   ├── E891_LogisticRegression.java
+│   │   ├── E892_KNearestNeighbors.java
+│   │   ├── E893_DecisionTree.java
+│   │   ├── E894_RandomForest.java
+│   │   ├── E895_NaiveBayes.java
+│   │   ├── E896_SVM.java
+│   │   ├── E897_KMeansClustering.java
+│   │   ├── E898_DBSCANClustering.java
+│   │   ├── E899_PCADimensionality.java
+│   │   ├── E900_NeuralNetwork.java
+│   │   ├── E901_BackPropagation.java
+│   │   ├── E902_GradientDescent.java
+│   │   ├── E903_CrossValidation.java
+│   │   ├── E904_FeatureScaling.java
+│   │   ├── E905_FeatureEngineering.java
+│   │   ├── E906_ModelEvaluation.java
+│   │   ├── E907_ConfusionMatrix.java
+│   │   ├── E908_ROCCurve.java
+│   │   └── E909_Ensemble Methods.java
+│   │
+│   ├── distributed_systems/
+│   │   ├── E910_RMIBasics.java
+│   │   ├── E911_RMIServer.java
+│   │   ├── E912_RMIClient.java
+│   │   ├── E913_DistributedCache.java
+│   │   ├── E914_ConsistentHashing.java
+│   │   ├── E915_DistributedLocking.java
+│   │   ├── E916_LeaderElection.java
+│   │   ├── E917_VectorClocks.java
+│   │   ├── E918_GossipProtocol.java
+│   │   ├── E919_CRDTImplementation.java
+│   │   ├── E920_TwoPhaseCommit.java
+│   │   ├── E921_ThreePhaseCommit.java
+│   │   ├── E922_PaxosConsensus.java
+│   │   ├── E923_RaftConsensus.java
+│   │   ├── E924_CAP_Theorem.java
+│   │   ├── E925_EventualConsistency.java
+│   │   ├── E926_Sharding.java
+│   │   ├── E927_Replication.java
+│   │   ├── E928_PartitionTolerance.java
+│   │   └── E929_DistributedTracing.java
+│   │
+│   ├── caching_strategies/
+│   │   ├── E930_InMemoryCache.java
+│   │   ├── E931_CacheEviction.java
+│   │   ├── E932_WriteThroughCache.java
+│   │   ├── E933_WriteBackCache.java
+│   │   ├── E934_CacheAside.java
+│   │   ├── E935_ReadThroughCache.java
+│   │   ├── E936_RefreshAheadCache.java
+│   │   ├── E937_DistributedCache.java
+│   │   ├── E938_RedisIntegration.java
+│   │   ├── E939_MemcachedIntegration.java
+│   │   ├── E940_EhcacheIntegration.java
+│   │   ├── E941_CaffeineCacheUsage.java
+│   │   ├── E942_GuavaCacheUsage.java
+│   │   ├── E943_CacheWarmup.java
+│   │   ├── E944_CacheInvalidation.java
+│   │   ├── E945_CachePartitioning.java
+│   │   ├── E946_CacheReplication.java
+│   │   ├── E947_CacheMonitoring.java
+│   │   ├── E948_CacheHitRatio.java
+│   │   └── E949_MultiLevelCache.java
+│   │
+│   ├── system_design/
+│   │   ├── E950_URLShortener.java
+│   │   ├── E951_RateLimiter.java
+│   │   ├── E952_ParkingLotSystem.java
+│   │   ├── E953_ElevatorSystem.java
+│   │   ├── E954_VendingMachine.java
+│   │   ├── E955_ATMSystem.java
+│   │   ├── E956_LibraryManagement.java
+│   │   ├── E957_HotelBooking.java
+│   │   ├── E958_MovieTicketBooking.java
+│   │   ├── E959_OnlineShopping.java
+│   │   ├── E960_FoodDelivery.java
+│   │   ├── E961_RideSharing.java
+│   │   ├── E962_ChatApplication.java
+│   │   ├── E963_SocialMedia.java
+│   │   ├── E964_SearchEngine.java
+│   │   ├── E965_FileStorage.java
+│   │   ├── E966_NotificationSystem.java
+│   │   ├── E967_TaskScheduler.java
+│   │   ├── E968_StockExchange.java
+│   │   └── E969_PaymentGateway.java
+│   │
+│   ├── blockchain_crypto/
+│   │   ├── E970_BlockStructure.java
+│   │   ├── E971_HashChaining.java
+│   │   ├── E972_ProofOfWork.java
+│   │   ├── E973_MerkleTree.java
+│   │   ├── E974_TransactionPool.java
+│   │   ├── E975_DigitalWallet.java
+│   │   ├── E976_CryptographicKeys.java
+│   │   ├── E977_TransactionSigning.java
+│   │   ├── E978_BlockValidation.java
+│   │   ├── E979_ConsensusAlgorithm.java
+│   │   ├── E980_SmartContract.java
+│   │   ├── E981_PeerToPeerNetwork.java
+│   │   ├── E982_BlockchainFork.java
+│   │   ├── E983_DoubleSpending.java
+│   │   ├── E984_MiningSimulation.java
+│   │   ├── E985_CryptocurrencyWallet.java
+│   │   ├── E986_BlockExplorer.java
+│   │   ├── E987_TokenImplementation.java
+│   │   ├── E988_NFTBasics.java
+│   │   └── E989_DecentralizedStorage.java
+│   │
+│   ├── compiler_interpreter/
+│   │   ├── E990_LexicalAnalyzer.java
+│   │   ├── E991_TokenGeneration.java
+│   │   ├── E992_SyntaxParser.java
+│   │   ├── E993_AbstractSyntaxTree.java
+│   │   ├── E994_SemanticAnalyzer.java
+│   │   ├── E995_SymbolTable.java
+│   │   ├── E996_TypeChecking.java
+│   │   ├── E997_IntermediateCode.java
+│   │   ├── E998_CodeOptimization.java
+│   │   ├── E999_CodeGeneration.java
+│   │   ├── E1000_VirtualMachine.java
+│   │   ├── E1001_BytecodeInterpreter.java
+│   │   ├── E1002_JITCompiler.java
+│   │   ├── E1003_StackMachine.java
+│   │   ├── E1004_RegisterMachine.java
+│   │   ├── E1005_GarbageCollector.java
+│   │   ├── E1006_MemoryManagement.java
+│   │   ├── E1007_ExpressionEvaluator.java
+│   │   ├── E1008_ScriptingEngine.java
+│   │   └── E1009_DSLParser.java
+│   │
+│   ├── game_development/
+│   │   ├── E1010_TicTacToeAI.java
+│   │   ├── E1011_ChessGame.java
+│   │   ├── E1012_CheckersGame.java
+│   │   ├── E1013_SudokuSolver.java
+│   │   ├── E1014_MinimaxAlgorithm.java
+│   │   ├── E1015_AlphaBetaPruning.java
+│   │   ├── E1016_MonteCarloTreeSearch.java
+│   │   ├── E1017_PathfindingAStar.java
+│   │   ├── E1018_CollisionDetection.java
+│   │   ├── E1019_SpriteAnimation.java
+│   │   ├── E1020_GameStateManagement.java
+│   │   ├── E1021_ScoreSystem.java
+│   │   ├── E1022_ParticleSystem.java
+│   │   ├── E1023_PhysicsEngine.java
+│   │   ├── E1024_EntityComponent.java
+│   │   ├── E1025_GameLoop.java
+│   │   ├── E1026_InputHandling.java
+│   │   ├── E1027_SoundManager.java
+│   │   ├── E1028_LevelEditor.java
+│   │   └── E1029_SaveLoadSystem.java
+│   │
+│   ├── computer_graphics/
+│   │   ├── E1030_2DTransformations.java
+│   │   ├── E1031_3DTransformations.java
+│   │   ├── E1032_MatrixOperations.java
+│   │   ├── E1033_VectorMath.java
+│   │   ├── E1034_LineDrawing.java
+│   │   ├── E1035_CircleDrawing.java
+│   │   ├── E1036_PolygonFilling.java
+│   │   ├── E1037_ClippingAlgorithms.java
+│   │   ├── E1038_BezierCurves.java
+│   │   ├── E1039_SplineCurves.java
+│   │   ├── E1040_RasterGraphics.java
+│   │   ├── E1041_VectorGraphics.java
+│   │   ├── E1042_ColorModels.java
+│   │   ├── E1043_ImageFiltering.java
+│   │   ├── E1044_EdgeDetection.java
+│   │   ├── E1045_ImageSegmentation.java
+│   │   ├── E1046_RayTracing.java
+│   │   ├── E1047_Rasterization.java
+│   │   ├── E1048_TextureMapping.java
+│   │   └── E1049_Shading.java
+│   │
+│   ├── natural_language/
+│   │   ├── E1050_Tokenization.java
+│   │   ├── E1051_Stemming.java
+│   │   ├── E1052_Lemmatization.java
+│   │   ├── E1053_POSTagging.java
+│   │   ├── E1054_NamedEntityRecognition.java
+│   │   ├── E1055_SentimentAnalysis.java
+│   │   ├── E1056_TextClassification.java
+│   │   ├── E1057_LanguageDetection.java
+│   │   ├── E1058_SpellChecker.java
+│   │   ├── E1059_AutoCorrect.java
+│   │   ├── E1060_TFIDFCalculation.java
+│   │   ├── E1061_CosineSimilarity.java
+│   │   ├── E1062_LevenshteinDistance.java
+│   │   ├── E1063_NGramModel.java
+│   │   ├── E1064_BagOfWords.java
+│   │   ├── E1065_Word2Vec.java
+│   │   ├── E1066_TopicModeling.java
+│   │   ├── E1067_TextSummarization.java
+│   │   ├── E1068_QuestionAnswering.java
+│   │   └── E1069_Chatbot.java
+│   │
+│   ├── image_processing/
+│   │   ├── E1070_ImageLoad.java
+│   │   ├── E1071_ImageResize.java
+│   │   ├── E1072_ImageRotation.java
+│   │   ├── E1073_ImageCropping.java
+│   │   ├── E1074_GrayscaleConversion.java
+│   │   ├── E1075_BinaryThreshold.java
+│   │   ├── E1076_HistogramEqualization.java
+│   │   ├── E1077_GaussianBlur.java
+│   │   ├── E1078_SharpeningFilter.java
+│   │   ├── E1079_EdgeDetection.java
+│   │   ├── E1080_MorphologicalOps.java
+│   │   ├── E1081_ContourDetection.java
+│   │   ├── E1082_ObjectDetection.java
+│   │   ├── E1083_FaceDetection.java
+│   │   ├── E1084_FeatureExtraction.java
+│   │   ├── E1085_ImageSegmentation.java
+│   │   ├── E1086_ColorSpaceConversion.java
+│   │   ├── E1087_WatermarkEmbedding.java
+│   │   ├── E1088_SteganographyBasic.java
+│   │   └── E1089_OCRImplementation.java
+│   │
+│   ├── audio_processing/
+│   │   ├── E1090_AudioLoad.java
+│   │   ├── E1091_AudioPlayback.java
+│   │   ├── E1092_AudioRecording.java
+│   │   ├── E1093_WaveformGeneration.java
+│   │   ├── E1094_FrequencyAnalysis.java
+│   │   ├── E1095_FFTImplementation.java
+│   │   ├── E1096_AudioFiltering.java
+│   │   ├── E1097_NoiseReduction.java
+│   │   ├── E1098_EchoEffect.java
+│   │   ├── E1099_PitchShifting.java
+│   │   ├── E1100_TimeStretching.java
+│   │   ├── E1101_AudioMixing.java
+│   │   ├── E1102_VolumeControl.java
+│   │   ├── E1103_AudioCompression.java
+│   │   ├── E1104_SpeechRecognition.java
+│   │   ├── E1105_VoiceActivity.java
+│   │   ├── E1106_BeatDetection.java
+│   │   ├── E1107_MusicGenre.java
+│   │   ├── E1108_AudioFingerprinting.java
+│   │   └── E1109_TextToSpeech.java
+│   │
+│   ├── web_scraping/
+│   │   ├── E1110_HTMLParser.java
+│   │   ├── E1111_JSoupBasics.java
+│   │   ├── E1112_CSSSelectors.java
+│   │   ├── E1113_DataExtraction.java
+│   │   ├── E1114_WebCrawler.java
+│   │   ├── E1115_SitemapParser.java
+│   │   ├── E1116_RobotsTxt.java
+│   │   ├── E1117_DynamicContent.java
+│   │   ├── E1118_SeleniumBasics.java
+│   │   ├── E1119_JavascriptExecution.java
+│   │   ├── E1120_FormSubmission.java
+│   │   ├── E1121_CookieHandling.java
+│   │   ├── E1122_ProxyRotation.java
+│   │   ├── E1123_UserAgentRotation.java
+│   │   ├── E1124_RateLimitingCrawl.java
+│   │   ├── E1125_DataCleaning.java
+│   │   ├── E1126_DataStorage.java
+│   │   ├── E1127_ImageScraping.java
+│   │   ├── E1128_APIExtraction.java
+│   │   └── E1129_ScrapingEthics.java
+│   │
+│   ├── build_tools/
+│   │   ├── E1130_MavenBasics.java
+│   │   ├── E1131_MavenPOM.java
+│   │   ├── E1132_MavenDependencies.java
+│   │   ├── E1133_MavenPlugins.java
+│   │   ├── E1134_MavenProfiles.java
+│   │   ├── E1135_GradleBasics.java
+│   │   ├── E1136_GradleBuildScript.java
+│   │   ├── E1137_GradleTasks.java
+│   │   ├── E1138_GradlePlugins.java
+│   │   ├── E1139_MultiModuleProject.java
+│   │   ├── E1140_CustomPlugin.java
+│   │   ├── E1141_BuildLifecycle.java
+│   │   ├── E1142_DependencyManagement.java
+│   │   ├── E1143_TransitiveDependencies.java
+│   │   ├── E1144_ShadedJar.java
+│   │   ├── E1145_FatJar.java
+│   │   ├── E1146_JARManifest.java
+│   │   ├── E1147_ResourceFiltering.java
+│   │   ├── E1148_ContinuousIntegration.java
+│   │   └── E1149_ReleaseManagement.java
+│   │
+│   ├── logging_monitoring/
+│   │   ├── E1150_Log4jBasics.java
+│   │   ├── E1151_LogbackConfiguration.java
+│   │   ├── E1152_SLF4JUsage.java
+│   │   ├── E1153_LogLevels.java
+│   │   ├── E1154_LogAppenders.java
+│   │   ├── E1155_RollingFileAppender.java
+│   │   ├── E1156_AsyncAppender.java
+│   │   ├── E1157_LogFilters.java
+│   │   ├── E1158_LogFormatting.java
+│   │   ├── E1159_MDCContext.java
+│   │   ├── E1160_StructuredLogging.java
+│   │   ├── E1161_CorrelationID.java
+│   │   ├── E1162_JMXMonitoring.java
+│   │   ├── E1163_MBeanRegistration.java
+│   │   ├── E1164_MetricsCollection.java
+│   │   ├── E1165_DropwizardMetrics.java
+│   │   ├── E1166_MicrometerMetrics.java
+│   │   ├── E1167_PrometheusExporter.java
+│   │   ├── E1168_HealthEndpoint.java
+│   │   └── E1169_DistributedTracing.java
+│   │
+│   ├── dependency_injection/
+│   │   ├── E1170_ManualDI.java
+│   │   ├── E1171_ConstructorInjection.java
+│   │   ├── E1172_SetterInjection.java
+│   │   ├── E1173_FieldInjection.java
+│   │   ├── E1174_InterfaceInjection.java
+│   │   ├── E1175_SpringContext.java
+│   │   ├── E1176_BeanConfiguration.java
+│   │   ├── E1177_ComponentScanning.java
+│   │   ├── E1178_BeanScope.java
+│   │   ├── E1179_BeanLifecycle.java
+│   │   ├── E1180_QualifierAnnotation.java
+│   │   ├── E1181_PrimaryBean.java
+│   │   ├── E1182_ConditionalBean.java
+│   │   ├── E1183_ProfileSpecific.java
+│   │   ├── E1184_PropertyInjection.java
+│   │   ├── E1185_SpELExpressions.java
+│   │   ├── E1186_AOPBasics.java
+│   │   ├── E1187_AspectConfiguration.java
+│   │   ├── E1188_PointcutExpression.java
+│   │   └── E1189_AroundAdvice.java
+│   │
+│   ├── spring_framework/
+│   │   ├── E1190_SpringBootStarter.java
+│   │   ├── E1191_AutoConfiguration.java
+│   │   ├── E1192_ApplicationProperties.java
+│   │   ├── E1193_ConfigurationClass.java
+│   │   ├── E1194_RestController.java
+│   │   ├── E1195_RequestMapping.java
+│   │   ├── E1196_PathVariable.java
+│   │   ├── E1197_RequestParam.java
+│   │   ├── E1198_RequestBody.java
+│   │   ├── E1199_ResponseEntity.java
+│   │   ├── E1200_ExceptionHandler.java
+│   │   ├── E1201_ControllerAdvice.java
+│   │   ├── E1202_ValidationAnnotations.java
+│   │   ├── E1203_CustomValidator.java
+│   │   ├── E1204_JPARepository.java
+│   │   ├── E1205_EntityMapping.java
+│   │   ├── E1206_RelationshipMapping.java
+│   │   ├── E1207_QueryMethods.java
+│   │   ├── E1208_CustomQuery.java
+│   │   ├── E1209_TransactionManagement.java
+│   │   ├── E1210_CachingAbstraction.java
+│   │   ├── E1211_ScheduledTasks.java
+│   │   ├── E1212_AsyncProcessing.java
+│   │   ├── E1213_EventHandling.java
+│   │   ├── E1214_WebSocketConfig.java
+│   │   ├── E1215_SecurityConfig.java
+│   │   ├── E1216_FilterChain.java
+│   │   ├── E1217_PasswordEncoding.java
+│   │   ├── E1218_JWTFilter.java
+│   │   └── E1219_OAuth2Integration.java
+│   │
+│   ├── persistence_advanced/
+│   │   ├── E1220_HibernateConfiguration.java
+│   │   ├── E1221_SessionFactory.java
+│   │   ├── E1222_EntityLifecycle.java
+│   │   ├── E1223_LazyLoading.java
+│   │   ├── E1224_EagerLoading.java
+│   │   ├── E1225_FetchStrategies.java
+│   │   ├── E1226_CascadeTypes.java
+│   │   ├── E1227_OneToOne.java
+│   │   ├── E1228_OneToMany.java
+│   │   ├── E1229_ManyToOne.java
+│   │   ├── E1230_ManyToMany.java
+│   │   ├── E1231_InheritanceMapping.java
+│   │   ├── E1232_SingleTableInheritance.java
+│   │   ├── E1233_JoinedTableInheritance.java
+│   │   ├── E1234_TablePerClass.java
+│   │   ├── E1235_SecondLevelCache.java
+│   │   ├── E1236_QueryCache.java
+│   │   ├── E1237_CriteriaAPI.java
+│   │   ├── E1238_JPQLQueries.java
+│   │   ├── E1239_NativeQueries.java
+│   │   ├── E1240_NamedQueries.java
+│   │   ├── E1241_StoredProcedure.java
+│   │   ├── E1242_BatchOperations.java
+│   │   ├── E1243_OptimisticLocking.java
+│   │   ├── E1244_PessimisticLocking.java
+│   │   ├── E1245_Versioning.java
+│   │   ├── E1246_Auditing.java
+│   │   ├── E1247_SoftDelete.java
+│   │   ├── E1248_MultiTenancy.java
+│   │   └── E1249_DatabaseMigration.java
+│   │
+│   ├── api_design/
+│   │   ├── E1250_RESTfulPrinciples.java
+│   │   ├── E1251_ResourceNaming.java
+│   │   ├── E1252_HTTPVerbs.java
+│   │   ├── E1253_StatusCodeUsage.java
+│   │   ├── E1254_HATEOASImplementation.java
+│   │   ├── E1255_ContentNegotiation.java
+│   │   ├── E1256_Pagination.java
+│   │   ├── E1257_FilteringSorting.java
+│   │   ├── E1258_FieldSelection.java
+│   │   ├── E1259_BulkOperations.java
+│   │   ├── E1260_ETagImplementation.java
+│   │   ├── E1261_ConditionalRequests.java
+│   │   ├── E1262_APIVersioning.java
+│   │   ├── E1263_ErrorHandling.java
+│   │   ├── E1264_InputValidation.java
+│   │   ├── E1265_OutputFormat.java
+│   │   ├── E1266_CompressionSupport.java
+│   │   ├── E1267_CORSHandling.java
+│   │   ├── E1268_RateLimiting.java
+│   │   ├── E1269_ThrottlingMechanism.java
+│   │   ├── E1270_APIDocumentation.java
+│   │   ├── E1271_SwaggerIntegration.java
+│   │   ├── E1272_OpenAPISpec.java
+│   │   ├── E1273_GraphQLBasics.java
+│   │   ├── E1274_GraphQLSchema.java
+│   │   ├── E1275_GraphQLResolvers.java
+│   │   ├── E1276_GraphQLMutations.java
+│   │   ├── E1277_GraphQLSubscriptions.java
+│   │   ├── E1278_gRPCService.java
+│   │   └── E1279_ProtobufDefinitions.java
+│   │
+│   ├── event_driven/
+│   │   ├── E1280_EventBus.java
+│   │   ├── E1281_EventPublisher.java
+│   │   ├── E1282_EventListener.java
+│   │   ├── E1283_EventSourcing.java
+│   │   ├── E1284_CQRS_Pattern.java
+│   │   ├── E1285_SagaPattern.java
+│   │   ├── E1286_EventStore.java
+│   │   ├── E1287_EventReplay.java
+│   │   ├── E1288_DomainEvents.java
+│   │   ├── E1289_IntegrationEvents.java
+│   │   ├── E1290_EventAggregator.java
+│   │   ├── E1291_EventProjection.java
+│   │   ├── E1292_Snapshots.java
+│   │   ├── E1293_EventVersion.java
+│   │   ├── E1294_EventMigration.java
+│   │   ├── E1295_OutboxPattern.java
+│   │   ├── E1296_InboxPattern.java
+│   │   ├── E1297_EventualConsistency.java
+│   │   ├── E1298_CompensatingTransaction.java
+│   │   └── E1299_EventChoreography.java
+│   │
+│   ├── clean_code/
+│   │   ├── E1300_NamingConventions.java
+│   │   ├── E1301_FunctionPrinciples.java
+│   │   ├── E1302_SOLIDPrinciples.java
+│   │   ├── E1303_SingleResponsibility.java
+│   │   ├── E1304_OpenClosed.java
+│   │   ├── E1305_LiskovSubstitution.java
+│   │   ├── E1306_InterfaceSegregation.java
+│   │   ├── E1307_DependencyInversion.java
+│   │   ├── E1308_DRYPrinciple.java
+│   │   ├── E1309_KISSPrinciple.java
+│   │   ├── E1310_YAGNIPrinciple.java
+│   │   ├── E1311_CompositionOverInheritance.java
+│   │   ├── E1312_LawOfDemeter.java
+│   │   ├── E1313_CodeSmells.java
+│   │   ├── E1314_RefactoringTechniques.java
+│   │   ├── E1315_ExtractMethod.java
+│   │   ├── E1316_ExtractClass.java
+│   │   ├── E1317_MoveMethod.java
+│   │   ├── E1318_RenameMethod.java
+│   │   └── E1319_RemoveDuplication.java
+│   │
+│   ├── code_quality/
+│   │   ├── E1320_StaticAnalysis.java
+│   │   ├── E1321_CheckstyleRules.java
+│   │   ├── E1322_PMDRules.java
+│   │   ├── E1323_FindBugsPatterns.java
+│   │   ├── E1324_SonarQubeMetrics.java
+│   │   ├── E1325_CodeCoverage.java
+│   │   ├── E1326_CyclomaticComplexity.java
+│   │   ├── E1327_CognitiveComplexity.java
+│   │   ├── E1328_CodeDuplication.java
+│   │   ├── E1329_TechnicalDebt.java
+│   │   ├── E1330_CodeReview.java
+│   │   ├── E1331_PeerReview.java
+│   │   ├── E1332_PairProgramming.java
+│   │   ├── E1333_DocumentationStandards.java
+│   │   ├── E1334_JavadocBestPractices.java
+│   │   ├── E1335_APIDocumentation.java
+│   │   ├── E1336_ReadmeCreation.java
+│   │   ├── E1337_ChangelogMaintenance.java
+│   │   ├── E1338_VersionControl.java
+│   │   └── E1339_GitWorkflow.java
+│   │
+│   ├── containerization/
+│   │   ├── E1340_DockerBasics.java
+│   │   ├── E1341_Dockerfile.java
+│   │   ├── E1342_DockerCompose.java
+│   │   ├── E1343_MultiStageBuilds.java
+│   │   ├── E1344_ImageOptimization.java
+│   │   ├── E1345_ContainerNetworking.java
+│   │   ├── E1346_VolumeManagement.java
+│   │   ├── E1347_EnvironmentVariables.java
+│   │   ├── E1348_HealthChecks.java
+│   │   ├── E1349_ContainerOrchestration.java
+│   │   ├── E1350_KubernetesBasics.java
+│   │   ├── E1351_PodConfiguration.java
+│   │   ├── E1352_ServiceDiscovery.java
+│   │   ├── E1353_DeploymentStrategies.java
+│   │   ├── E1354_ConfigMaps.java
+│   │   ├── E1355_Secrets.java
+│   │   ├── E1356_PersistentVolumes.java
+│   │   ├── E1357_IngressControllers.java
+│   │   ├── E1358_HorizontalScaling.java
+│   │   └── E1359_RollingUpdates.java
+│   │
+│   ├── cloud_computing/
+│   │   ├── E1360_AWSSDKBasics.java
+│   │   ├── E1361_S3Operations.java
+│   │   ├── E1362_DynamoDBOperations.java
+│   │   ├── E1363_SQSMessaging.java
+│   │   ├── E1364_SNSNotifications.java
+│   │   ├── E1365_LambdaFunctions.java
+│   │   ├── E1366_EC2Management.java
+│   │   ├── E1367_CloudFormation.java
+│   │   ├── E1368_IAMPolicies.java
+│   │   ├── E1369_CloudWatchMetrics.java
+│   │   ├── E1370_AzureSDKBasics.java
+│   │   ├── E1371_BlobStorage.java
+│   │   ├── E1372_CosmosDB.java
+│   │   ├── E1373_ServiceBus.java
+│   │   ├── E1374_AzureFunctions.java
+│   │   ├── E1375_GCPSDKBasics.java
+│   │   ├── E1376_CloudStorage.java
+│   │   ├── E1377_Firestore.java
+│   │   ├── E1378_PubSub.java
+│   │   └── E1379_CloudFunctions.java
+│   │
+│   ├── devops_practices/
+│   │   ├── E1380_CICDPipeline.java
+│   │   ├── E1381_JenkinsIntegration.java
+│   │   ├── E1382_GitLabCI.java
+│   │   ├── E1383_GitHubActions.java
+│   │   ├── E1384_AutomatedTesting.java
+│   │   ├── E1385_TestAutomation.java
+│   │   ├── E1386_IntegrationTests.java
+│   │   ├── E1387_EndToEndTests.java
+│   │   ├── E1388_PerformanceTesting.java
+│   │   ├── E1389_LoadTesting.java
+│   │   ├── E1390_StressTesting.java
+│   │   ├── E1391_SecurityScanning.java
+│   │   ├── E1392_DependencyScanning.java
+│   │   ├── E1393_ArtifactManagement.java
+│   │   ├── E1394_DeploymentAutomation.java
+│   │   ├── E1395_BlueGreenDeployment.java
+│   │   ├── E1396_CanaryDeployment.java
+│   │   ├── E1397_FeatureFlags.java
+│   │   ├── E1398_InfrastructureAsCode.java
+│   │   └── E1399_ConfigurationManagement.java
+│   │
+│   ├── big_data/
+│   │   ├── E1400_HadoopBasics.java
+│   │   ├── E1401_HDFSOperations.java
+│   │   ├── E1402_MapReduceJob.java
+│   │   ├── E1403_SparkContext.java
+│   │   ├── E1404_RDDOperations.java
+│   │   ├── E1405_DataFrames.java
+│   │   ├── E1406_SparkSQL.java
+│   │   ├── E1407_StreamProcessing.java
+│   │   ├── E1408_KafkaStreams.java
+│   │   ├── E1409_FlinkProcessing.java
+│   │   ├── E1410_HiveQueries.java
+│   │   ├── E1411_PigScripts.java
+│   │   ├── E1412_HBaseOperations.java
+│   │   ├── E1413_CassandraIntegration.java
+│   │   ├── E1414_MongoDBOperations.java
+│   │   ├── E1415_ElasticsearchIndex.java
+│   │   ├── E1416_DataPipeline.java
+│   │   ├── E1417_ETLProcess.java
+│   │   ├── E1418_DataWarehouse.java
+│   │   └── E1419_DataLake.java
+│   │
+│   ├── specialized_topics/
+│   │   ├── E1420_WebAssembly.java
+│   │   ├── E1421_ModuleSystem.java
+│   │   ├── E1422_JShellREPL.java
+│   │   ├── E1423_VarKeyword.java
+│   │   ├── E1424_RecordClasses.java
+│   │   ├── E1425_SealedClasses.java
+│   │   ├── E1426_PatternMatching.java
+│   │   ├── E1427_SwitchExpressions.java
+│   │   ├── E1428_TextBlocks.java
+│   │   ├── E1429_ForeignMemoryAPI.java
+│   │   ├── E1430_VectorAPI.java
+│   │   ├── E1431_ProjectLoom.java
+│   │   ├── E1432_VirtualThreads.java
+│   │   ├── E1433_StructuredConcurrency.java
+│   │   ├── E1434_ProjectPanama.java
+│   │   ├── E1435_NativeInterop.java
+│   │   ├── E1436_ProjectValhalla.java
+│   │   ├── E1437_ValueTypes.java
+│   │   ├── E1438_SpecializedGenerics.java
+│   │   └── E1439_AOTCompilation.java
+│   │
+│   ├── testing_strategies/
+│   │   ├── E1440_UnitTestBestPractices.java
+│   │   ├── E1441_TestDrivenDevelopment.java
+│   │   ├── E1442_BehaviorDrivenDevelopment.java
+│   │   ├── E1443_GivenWhenThen.java
+│   │   ├── E1444_CucumberTests.java
+│   │   ├── E1445_MockingStrategies.java
+│   │   ├── E1446_StubCreation.java
+│   │   ├── E1447_FakeObjects.java
+│   │   ├── E1448_TestDataBuilders.java
+│   │   ├── E1449_FixtureManagement.java
+│   │   ├── E1450_ContractTesting.java
+│   │   ├── E1451_SnapshotTesting.java
+│   │   ├── E1452_VisualRegressionTesting.java
+│   │   ├── E1453_A_B_Testing.java
+│   │   ├── E1454_ChaosEngineering.java
+│   │   ├── E1455_FaultInjection.java
+│   │   ├── E1456_ResilienceTesting.java
+│   │   ├── E1457_SecurityTesting.java
+│   │   ├── E1458_PenetrationTesting.java
+│   │   └── E1459_ComplianceTesting.java
+│   │
+│   ├── architectural_patterns/
+│   │   ├── E1460_LayeredArchitecture.java
+│   │   ├── E1461_HexagonalArchitecture.java
+│   │   ├── E1462_OnionArchitecture.java
+│   │   ├── E1463_CleanArchitecture.java
+│   │   ├── E1464_MicroservicesArchitecture.java
+│   │   ├── E1465_MonolithicArchitecture.java
+│   │   ├── E1466_ModularMonolith.java
+│   │   ├── E1467_ServiceOrientedArchitecture.java
+│   │   ├── E1468_EventDrivenArchitecture.java
+│   │   ├── E1469_PipelineArchitecture.java
+│   │   ├── E1470_MicrokerneArchitecture.java
+│   │   ├── E1471_SpaceBasedArchitecture.java
+│   │   ├── E1472_ServerlessArchitecture.java
+│   │   ├── E1473_PeerToPeerArchitecture.java
+│   │   ├── E1474_ClientServerArchitecture.java
+│   │   ├── E1475_ThreeTierArchitecture.java
+│   │   ├── E1476_MVCPattern.java
+│   │   ├── E1477_MVPPattern.java
+│   │   ├── E1478_MVVMPattern.java
+│   │   └── E1479_FluxArchitecture.java
+│   │
+│   ├── domain_modeling/
+│   │   ├── E1480_DomainDrivenDesign.java
+│   │   ├── E1481_BoundedContext.java
+│   │   ├── E1482_Aggregates.java
+│   │   ├── E1483_Entities.java
+│   │   ├── E1484_ValueObjects.java
+│   │   ├── E1485_DomainServices.java
+│   │   ├── E1486_Repositories.java
+│   │   ├── E1487_Factories.java
+│   │   ├── E1488_DomainEvents.java
+│   │   ├── E1489_UbiquitousLanguage.java
+│   │   ├── E1490_ContextMapping.java
+│   │   ├── E1491_AnticorruptionLayer.java
+│   │   ├── E1492_SharedKernel.java
+│   │   ├── E1493_CustomerSupplier.java
+│   │   ├── E1494_Conformist.java
+│   │   ├── E1495_Partnership.java
+│   │   ├── E1496_PublishedLanguage.java
+│   │   ├── E1497_OpenHostService.java
+│   │   ├── E1498_SeparateWays.java
+│   │   └── E1499_BigBallOfMud.java
+│   │
+│   ├── integration_patterns/
+│   │   ├── E1500_MessageRouter.java
+│   │   ├── E1501_ContentFilter.java
+│   │   ├── E1502_MessageTranslator.java
+│   │   ├── E1503_MessageEnricher.java
+│   │   ├── E1504_ClaimCheck.java
+│   │   ├── E1505_Splitter.java
+│   │   ├── E1506_Aggregator.java
+│   │   ├── E1507_Resequencer.java
+│   │   ├── E1508_ComposedMessageProcessor.java
+│   │   ├── E1509_ScatterGather.java
+│   │   ├── E1510_RoutingSlip.java
+│   │   ├── E1511_ProcessManager.java
+│   │   ├── E1512_MessageBridge.java
+│   │   ├── E1513_ChannelAdapter.java
+│   │   ├── E1514_MessagingGateway.java
+│   │   ├── E1515_ServiceActivator.java
+│   │   ├── E1516_PollingConsumer.java
+│   │   ├── E1517_EventDrivenConsumer.java
+│   │   ├── E1518_CompetingConsumers.java
+│   │   └── E1519_DurableSubscriber.java
+│   │
+│   ├── resilience_patterns/
+│   │   ├── E1520_RetryPattern.java
+│   │   ├── E1521_ExponentialBackoff.java
+│   │   ├── E1522_CircuitBreakerAdvanced.java
+│   │   ├── E1523_Bulkhead.java
+│   │   ├── E1524_Timeout.java
+│   │   ├── E1525_Fallback.java
+│   │   ├── E1526_CacheAside.java
+│   │   ├── E1527_HealthCheck.java
+│   │   ├── E1528_Heartbeat.java
+│   │   ├── E1529_Throttling.java
+│   │   ├── E1530_LoadShedding.java
+│   │   ├── E1531_GracefulDegradation.java
+│   │   ├── E1532_RedundancyPattern.java
+│   │   ├── E1533_Idempotency.java
+│   │   ├── E1534_CompensatingAction.java
+│   │   ├── E1535_BackupRestore.java
+│   │   ├── E1536_DisasterRecovery.java
+│   │   ├── E1537_Failover.java
+│   │   ├── E1538_FailSafe.java
+│   │   └── E1539_ChaosTesting.java
+│   │
+│   ├── data_patterns/
+│   │   ├── E1540_RepositoryPattern.java
+│   │   ├── E1541_UnitOfWork.java
+│   │   ├── E1542_DataMapper.java
+│   │   ├── E1543_ActiveRecord.java
+│   │   ├── E1544_TableDataGateway.java
+│   │   ├── E1545_RowDataGateway.java
+│   │   ├── E1546_IdentityMap.java
+│   │   ├── E1547_LazyLoad.java
+│   │   ├── E1548_EagerLoad.java
+│   │   ├── E1549_QueryObject.java
+│   │   ├── E1550_Specification.java
+│   │   ├── E1551_OptimisticOfflineLock.java
+│   │   ├── E1552_PessimisticOfflineLock.java
+│   │   ├── E1553_CoarseGrainedLock.java
+│   │   ├── E1554_ImplicitLock.java
+│   │   ├── E1555_DatabaseSharding.java
+│   │   ├── E1556_ReadReplica.java
+│   │   ├── E1557_WriteThroughCache.java
+│   │   ├── E1558_WriteAroundCache.java
+│   │   └── E1559_WriteBehindCache.java
+│   │
+│   ├── real_world_projects/
+│   │   ├── E1560_BloggingPlatform.java
+│   │   ├── E1561_ECommercePlatform.java
+│   │   ├── E1562_BankingSystem.java
+│   │   ├── E1563_InventoryManagement.java
+│   │   ├── E1564_HRManagementSystem.java
+│   │   ├── E1565_HealthcareSystem.java
+│   │   ├── E1566_SchoolManagement.java
+│   │   ├── E1567_ReservationSystem.java
+│   │   ├── E1568_AuctionPlatform.java
+│   │   ├── E1569_SocialNetworking.java
+│   │   ├── E1570_ContentManagement.java
+│   │   ├── E1571_ProjectManagement.java
+│   │   ├── E1572_CRMSystem.java
+│   │   ├── E1573_SupplyChainManagement.java
+│   │   ├── E1574_FleetManagement.java
+│   │   ├── E1575_RealEstatePortal.java
+│   │   ├── E1576_JobPortal.java
+│   │   ├── E1577_EventManagement.java
+│   │   ├── E1578_FitnessTracker.java
+│   │   └── E1579_ExpenseTracker.java
+│   │
+│   ├── performance_tuning/
+│   │   ├── E1580_JVMTuning.java
+│   │   ├── E1581_HeapAnalysis.java
+│   │   ├── E1582_ThreadDumpAnalysis.java
+│   │   ├── E1583_GCLogging.java
+│   │   ├── E1584_MemoryProfiling.java
+│   │   ├── E1585_CPUProfiling.java
+│   │   ├── E1586_DatabaseQueryOptimization.java
+│   │   ├── E1587_IndexOptimization.java
+│   │   ├── E1588_ConnectionPoolTuning.java
+│   │   ├── E1589_CacheOptimization.java
+│   │   ├── E1590_LazyLoadingOptimization.java
+│   │   ├── E1591_BatchProcessingOptimization.java
+│   │   ├── E1592_AsynchronousProcessing.java
+│   │   ├── E1593_ParallelStreamOptimization.java
+│   │   ├── E1594_CollectionOptimization.java
+│   │   ├── E1595_StringOptimization.java
+│   │   ├── E1596_ReflectionOptimization.java
+│   │   ├── E1597_SerializationOptimization.java
+│   │   ├── E1598_NetworkOptimization.java
+│   │   └── E1599_AlgorithmOptimization.java
+│   │
+│   ├── legacy_modernization/
+│   │   ├── E1600_CodeRefactoring.java
+│   │   ├── E1601_LegacyCodeAnalysis.java
+│   │   ├── E1602_DependencyBreaking.java
+│   │   ├── E1603_CharacterizationTests.java
+│   │   ├── E1604_StranglerFigPattern.java
+│   │   ├── E1605_AnticorruptionLayer.java
+│   │   ├── E1606_APIAbstraction.java
+│   │   ├── E1607_DatabaseMigration.java
+│   │   ├── E1608_MonolithToMicroservices.java
+│   │   ├── E1609_VersionUpgrade.java
+│   │   ├── E1610_FrameworkMigration.java
+│   │   ├── E1611_DependencyUpdate.java
+│   │   ├── E1612_SecurityPatching.java
+│   │   ├── E1613_TechnicalDebtReduction.java
+│   │   ├── E1614_CodeModernization.java
+│   │   ├── E1615_PlatformMigration.java
+│   │   ├── E1616_CloudMigration.java
+│   │   ├── E1617_ContainerizationLegacy.java
+│   │   ├── E1618_DocumentationRecovery.java
+│   │   └── E1619_KnowledgeTransfer.java
+│   │
+│   ├── advanced_topics/
+│   │   ├── E1620_QuantumComputing.java
+│   │   ├── E1621_EdgeComputing.java
+│   │   ├── E1622_IoTPlatform.java
+│   │   ├── E1623_ARVRBasics.java
+│   │   ├── E1624_ComputerVision.java
+│   │   ├── E1625_ReinforcementLearning.java
+│   │   ├── E1626_DeepLearning.java
+│   │   ├── E1627_NaturalLanguageProcessing.java
+│   │   ├── E1628_SpeechRecognition.java
+│   │   ├── E1629_RecommendationEngine.java
+│   │   ├── E1630_AnomalyDetection.java
+│   │   ├── E1631_TimeSeriesAnalysis.java
+│   │   ├── E1632_PredictiveAnalytics.java
+│   │   ├── E1633_DataMining.java
+│   │   ├── E1634_GraphAnalytics.java
+│   │   ├── E1635_StreamAnalytics.java
+│   │   ├── E1636_RealTimeProcessing.java
+│   │   ├── E1637_ComplexEventProcessing.java
+│   │   ├── E1638_GeospatialAnalysis.java
+│   │   └── E1639_BioinformaticsBasics.java
+│   │
+│   ├── observability/
+│   │   ├── E1640_MetricsCollection.java
+│   │   ├── E1641_LogAggregation.java
+│   │   ├── E1642_DistributedTracing.java
+│   │   ├── E1643_APMIntegration.java
+│   │   ├── E1644_CustomMetrics.java
+│   │   ├── E1645_AlertingRules.java
+│   │   ├── E1646_DashboardCreation.java
+│   │   ├── E1647_SLODefinition.java
+│   │   ├── E1648_SLITracking.java
+│   │   ├── E1649_ErrorBudget.java
+│   │   ├── E1650_IncidentResponse.java
+│   │   ├── E1651_RootCauseAnalysis.java
+│   │   ├── E1652_PostMortem.java
+│   │   ├── E1653_CapacityPlanning.java
+│   │   ├── E1654_ResourceMonitoring.java
+│   │   ├── E1655_PerformanceBaselines.java
+│   │   ├── E1656_AnomalyDetection.java
+│   │   ├── E1657_TrendAnalysis.java
+│   │   ├── E1658_PredictiveMonitoring.java
+│   │   └── E1659_ObservabilityPipeline.java
+│   │
+│   ├── compliance_governance/
+│   │   ├── E1660_GDPRCompliance.java
+│   │   ├── E1661_HIPAACompliance.java
+│   │   ├── E1662_PCIDSSCompliance.java
+│   │   ├── E1663_SOC2Compliance.java
+│   │   ├── E1664_ISO27001.java
+│   │   ├── E1665_DataPrivacy.java
+│   │   ├── E1666_ConsentManagement.java
+│   │   ├── E1667_DataRetention.java
+│   │   ├── E1668_DataAnonymization.java
+│   │   ├── E1669_DataEncryption.java
+│   │   ├── E1670_AccessControl.java
+│   │   ├── E1671_AuditLogging.java
+│   │   ├── E1672_ComplianceReporting.java
+│   │   ├── E1673_RiskAssessment.java
+│   │   ├── E1674_VulnerabilityManagement.java
+│   │   ├── E1675_PatchManagement.java
+│   │   ├── E1676_ChangeManagement.java
+│   │   ├── E1677_ConfigurationManagement.java
+│   │   ├── E1678_IncidentManagement.java
+│   │   └── E1679_BusinessContinuity.java
+│   │
+│   ├── soft_skills/
+│   │   ├── E1680_CodeDocumentation.java
+│   │   ├── E1681_TechnicalWriting.java
+│   │   ├── E1682_APIDocumentation.java
+│   │   ├── E1683_ArchitectureDocumentation.java
+│   │   ├── E1684_DesignDecisions.java
+│   │   ├── E1685_TechnicalSpecs.java
+│   │   ├── E1686_UserStories.java
+│   │   ├── E1687_AcceptanceCriteria.java
+│   │   ├── E1688_EstimationTechniques.java
+│   │   ├── E1689_SprintPlanning.java
+│   │   ├── E1690_TaskBreakdown.java
+│   │   ├── E1691_VelocityTracking.java
+│   │   ├── E1692_BurndownCharts.java
+│   │   ├── E1693_Retrospectives.java
+│   │   ├── E1694_CodeReviewComments.java
+│   │   ├── E1695_TechnicalPresentations.java
+│
+└── solutions/
+    └── (same structure with solutions)
+```
+
